@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -9,7 +8,6 @@
 <meta name="theme-color" content="#e84c2b">
 
 <!-- PWA -->
-
 <link rel="manifest" href="manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -21,41 +19,35 @@
 <!-- ============================================================
   🔥 FIREBASE CONFIG — COLE SUAS CREDENCIAIS AQUI
 ============================================================ -->
-
-<script type="module" crossorigin>
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-         signOut, onAuthStateChanged, updateProfile, sendPasswordResetEmail,
-         GoogleAuthProvider, signInWithPopup, setPersistence, browserLocalPersistence
-       } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, collection, addDoc,
-         getDocs, deleteDoc, updateDoc
-       } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script>
 
 // ⬇️ SUBSTITUA COM SUAS CREDENCIAIS DO FIREBASE
-const firebaseConfig = {
-  apiKey: "AIzaSyAMvPzOjgoO-OHgkV270NN1BFXWimHxG38",
-authDomain: "finas-app-430a8.firebaseapp.com",
-projectId: "finas-app-430a8",
-storageBucket: "finas-app-430a8.firebasestorage.app",
-messagingSenderId: "37160132569",
-appId: "1:37160132569:web:1413256559764bc424c3c8",
-measurementId: "G-YX7VCJ5HRX"
-
+cconst firebaseConfig = {
+  apiKey: "AIzaSyAMvPzOjgoO-OHgkV270NN1BFXWimHxG38",
+  authDomain: "finas-app-430a8.firebaseapp.com",
+  projectId: "finas-app-430a8",
+  storageBucket: "finas-app-430a8.firebasestorage.app",
+  messagingSenderId: "37160132569",
+  appId: "1:37160132569:web:1413256559764bc424c3c8",
+  measurementId: "G-YX7VCJ5HRX"
+};
 
 // ⬇️ COLE SUA CHAVE DA API ANTHROPIC AQUI (para o chat com IA)
 // Obtenha em: https://console.anthropic.com
 // ATENÇÃO: em produção, use um backend para proteger esta chave!
-const ANTHROPIC_KEY = "COLE_SUA_ANTHROPIC_API_KEY_AQUI";
+const ANTHROPIC_KEY = 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;
 // ⬆️ FIM DAS CREDENCIAIS
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-const googleProvider = new GoogleAuthProvider();
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 // Sessão persistente — usuário fica logado até clicar em Sair
-setPersistence(auth, browserLocalPersistence);
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
 // ============================================================
 // CONSTANTES
@@ -106,7 +98,7 @@ function hideLoading(){document.getElementById('loading-overlay').style.display=
 // ============================================================
 // AUTH
 // ============================================================
-onAuthStateChanged(auth, async user => {
+auth.onAuthStateChanged(async user => {
   if(user){
     currentUser=user; showLoading('Carregando seus dados...');
     await loadUserData(); hideLoading(); showApp();
@@ -116,12 +108,12 @@ onAuthStateChanged(auth, async user => {
 async function loginGoogle(){
   try{
     showLoading('Entrando com Google...');
-    const result = await signInWithPopup(auth, googleProvider);
+    const result = await auth.signInWithPopup(googleProvider);
     const user = result.user;
     // Cria perfil se for primeiro acesso
-    const userDoc = await getDoc(doc(db,'users',user.uid));
-    if(!userDoc.exists()){
-      await setDoc(doc(db,'users',user.uid),{
+    const userDoc = await db.collection('users').doc(user.uid).get();
+    if(!userDoc.exists){
+      await db.collection('users').doc(user.uid).set({
         nome: user.displayName||'Usuário',
         email: user.email,
         criadoEm: new Date().toISOString(),
@@ -144,9 +136,9 @@ async function register(){
   if(senha.length<6){toast('Senha: mínimo 6 caracteres!','error');return;}
   try{
     showLoading('Criando conta...');
-    const cred=await createUserWithEmailAndPassword(auth,email,senha);
-    await updateProfile(cred.user,{displayName:nome});
-    await setDoc(doc(db,'users',cred.user.uid),{
+    const cred=await auth.createUserWithEmailAndPassword(email,senha);
+    await cred.user.updateProfile({displayName:nome});
+    await db.collection('users').doc(cred.user.uid).set({
       nome,email,criadoEm:new Date().toISOString(),
       plan:{type:'free',trialStart:new Date().toISOString()}
     });
@@ -164,7 +156,7 @@ async function login(){
   if(!email||!senha){toast('Preencha e-mail e senha!','error');return;}
   try{
     showLoading('Entrando...');
-    await signInWithEmailAndPassword(auth,email,senha);
+    await auth.signInWithEmailAndPassword(email,senha);
   } catch(e){
     hideLoading();
     const msgs={'auth/user-not-found':'Usuário não encontrado!','auth/wrong-password':'Senha incorreta!','auth/invalid-credential':'E-mail ou senha incorretos!'};
@@ -174,14 +166,14 @@ async function login(){
 
 async function logout(){
   if(!confirm('Sair do FinaS?'))return;
-  await signOut(auth);
+  await auth.signOut();
   userItems=[];userMetas=[];userArquivo=[];userProfile=null;chatHistory=[];
 }
 
 async function resetPassword(){
   const email=document.getElementById('login-email').value.trim();
   if(!email){toast('Digite seu e-mail primeiro!','error');return;}
-  try{await sendPasswordResetEmail(auth,email);toast('E-mail de recuperação enviado! 📧');}
+  try{await auth.sendPasswordResetEmail(email);toast('E-mail de recuperação enviado! 📧');}
   catch(e){toast('Erro ao enviar e-mail!','error');}
 }
 
@@ -191,12 +183,12 @@ async function resetPassword(){
 async function loadUserData(){
   const uid=currentUser.uid;
   try{
-    const userDoc=await getDoc(doc(db,'users',uid));
-    if(userDoc.exists()){userProfile=userDoc.data();userPlan=userDoc.data().plan||{type:'free',trialStart:new Date().toISOString()};}
+    const userDoc=await db.collection('users').doc(uid).get();
+    if(userDoc.exists){userProfile=userDoc.data();userPlan=userDoc.data().plan||{type:'free',trialStart:new Date().toISOString()};}
     const [itemsSnap,metasSnap,arquivoSnap]=await Promise.all([
-      getDocs(collection(db,'users',uid,'items')),
-      getDocs(collection(db,'users',uid,'metas')),
-      getDocs(collection(db,'users',uid,'arquivo'))
+      db.collection('users').doc(uid).collection('items').get(),
+      db.collection('users').doc(uid).collection('metas').get(),
+      db.collection('users').doc(uid).collection('arquivo').get()
     ]);
     userItems=itemsSnap.docs.map(d=>({id:d.id,...d.data()}));
     userMetas=metasSnap.docs.map(d=>({id:d.id,...d.data()}));
@@ -208,36 +200,36 @@ async function loadUserData(){
 }
 
 async function fsAddItem(item){
-  const ref=await addDoc(collection(db,'users',currentUser.uid,'items'),item);
+  const ref=await db.collection('users').doc(currentUser.uid).collection('items').add(item);
   item.id=ref.id; return item;
 }
-async function fsDeleteItem(id){await deleteDoc(doc(db,'users',currentUser.uid,'items',id));}
-async function fsAddMeta(meta){const ref=await addDoc(collection(db,'users',currentUser.uid,'metas'),meta);meta.id=ref.id;return meta;}
-async function fsDeleteMeta(id){await deleteDoc(doc(db,'users',currentUser.uid,'metas',id));}
+async function fsDeleteItem(id){await db.collection('users').doc(currentUser.uid).collection('items').doc(id).delete();}
+async function fsAddMeta(meta){const ref=await db.collection('users').doc(currentUser.uid).collection('metas').add(meta);meta.id=ref.id;return meta;}
+async function fsDeleteMeta(id){await db.collection('users').doc(currentUser.uid).collection('metas').doc(id).delete();}
 async function fsArchive(item){
-  await deleteDoc(doc(db,'users',currentUser.uid,'items',item.id));
+  await db.collection('users').doc(currentUser.uid).collection('items').doc(item.id).delete();
   const arch={...item,archivedAt:new Date().toISOString(),motivo:'Parcelas encerradas'};
-  const ref=await addDoc(collection(db,'users',currentUser.uid,'arquivo'),arch);
+  const ref=await db.collection('users').doc(currentUser.uid).collection('arquivo').add(arch);
   arch.id=ref.id; return arch;
 }
 async function fsReactivate(item){
-  await deleteDoc(doc(db,'users',currentUser.uid,'arquivo',item.id));
+  await db.collection('users').doc(currentUser.uid).collection('arquivo').doc(item.id).delete();
   const {archivedAt,motivo,...clean}=item;
-  const ref=await addDoc(collection(db,'users',currentUser.uid,'items'),clean);
+  const ref=await db.collection('users').doc(currentUser.uid).collection('items').add(clean);
   clean.id=ref.id; return clean;
 }
-async function fsSaveProfile(data){await updateDoc(doc(db,'users',currentUser.uid),data);Object.assign(userProfile,data);}
+async function fsSaveProfile(data){await db.collection('users').doc(currentUser.uid).update(data);Object.assign(userProfile,data);}
 async function fsUpdatePlan(type){
   const pd={type,updatedAt:new Date().toISOString()};
   if(type==='pro')pd.proStart=new Date().toISOString();
-  await updateDoc(doc(db,'users',currentUser.uid),{plan:pd});
+  await db.collection('users').doc(currentUser.uid).update({plan:pd});
   userPlan=pd;
 }
 async function fsIncrementChat(){
   const nowK=mesKey(new Date().getMonth(),new Date().getFullYear());
   chatMsgCount++;
   const upd={};upd[`chatCount.${nowK}`]=chatMsgCount;
-  await updateDoc(doc(db,'users',currentUser.uid),upd);
+  await db.collection('users').doc(currentUser.uid).update(upd);
 }
 
 // ============================================================
@@ -1244,14 +1236,12 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
   .drawer{width:100vw}.header-right{gap:4px}.chat-wrap{height:calc(100vh - 280px)}
 }
 </style>
-
 </head>
 <body>
 
 <div id="loading-overlay"><div class="loading-spinner"></div><div id="loading-msg">Carregando...</div></div>
 
 <!-- AUTH -->
-
 <div id="auth-screen">
  <div class="auth-wrap">
   <div class="auth-logo">Fina<span>S</span></div>
@@ -1288,7 +1278,6 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
 </div>
 
 <!-- ONBOARDING -->
-
 <div id="onboard-screen">
  <div class="ob-wrap">
   <div class="ob-header"><div class="ob-logo">Fina<span>S</span></div><div style="font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:3px">Configurando seu perfil</div></div>
@@ -1350,7 +1339,6 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
 </div>
 
 <!-- DRAWER -->
-
 <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
  <div class="drawer-header"><div class="drawer-title">⚙️ Configurações</div><button class="btn-drawer-close" onclick="closeDrawer()">✕</button></div>
@@ -1416,7 +1404,6 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
 </div>
 
 <!-- APP -->
-
 <div id="app-screen">
  <header class="app-header">
   <div class="hl"><h1>Fina<span style="color:var(--accent)">S</span></h1><div class="sub" id="greeting">—</div></div>
@@ -1452,7 +1439,6 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
  </div>
 
  <!-- LANÇAMENTOS -->
-
  <div class="panel active" id="panel-lancamentos">
   <div class="form-section">
    <div class="fs-title">Novo lançamento <span class="fs-tag">Enter para salvar</span></div>
@@ -1473,7 +1459,6 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
  </div>
 
  <!-- CATEGORIAS -->
-
  <div class="panel" id="panel-categorias">
   <div class="analise-card">
    <div class="ac-title">🏷 Gastos por Categoria — <span style="color:var(--muted);font-size:12px;font-weight:400" id="cat-mes-label">este mês</span></div>
@@ -1486,7 +1471,6 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
  </div>
 
  <!-- GRÁFICO -->
-
  <div class="panel" id="panel-grafico">
   <div class="chart-section"><div id="grafico-lock" class="lock-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Disponível no plano <strong>Pro</strong></div><button class="btn-unlock" onclick="openDrawer('sec-planos')">Ver planos →</button></div><div class="chart-header"><div class="chart-title">📈 Evolução mensal</div><div class="chart-legend"><div class="cl-item"><div class="cl-dot" style="background:var(--accent3)"></div>Renda</div><div class="cl-item"><div class="cl-dot" style="background:var(--accent2)"></div>Fixos</div><div class="cl-item"><div class="cl-dot" style="background:var(--accent)"></div>Variáveis</div><div class="cl-item"><div class="cl-dot" style="background:var(--warn)"></div>Saldo</div></div></div><div class="chart-wrap"><canvas id="monthlyChart"></canvas></div></div>
   <div class="chart-section"><div class="chart-header"><div class="chart-title">📊 Resumo por mês</div></div><div class="chart-months-summary" id="months-summary"></div></div>
@@ -1494,7 +1478,6 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
  </div>
 
  <!-- ANÁLISE -->
-
  <div class="panel" id="panel-analise">
   <div class="analise-card"><div class="ac-title">👤 Seu perfil</div><div id="perfil-box" style="background:var(--tag-bg);border-radius:9px;padding:11px;font-size:12px;line-height:1.8;color:var(--muted)">—</div></div>
   <div class="analise-card" style="position:relative"><div id="analise-lock" class="lock-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Análise avançada no <strong>Pro</strong></div><button class="btn-unlock" onclick="openDrawer('sec-planos')">Ver planos →</button></div><div class="ac-title">💡 Insights personalizados</div><div id="insight-list"></div></div>
@@ -1502,14 +1485,12 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
  </div>
 
  <!-- QUINZENA -->
-
  <div class="panel" id="panel-quinzena">
   <div class="analise-card"><div class="ac-title">📅 Distribuição quinzenal</div><div class="qgrid"><div class="qcard"><div class="qcard-title">1ª Quinzena (1–15)</div><div id="q1-items"></div><div class="qcard-total"><span>Total</span><span id="q1-total" class="c-red">R$ 0</span></div></div><div class="qcard"><div class="qcard-title">2ª Quinzena (16–31)</div><div id="q2-items"></div><div class="qcard-total"><span>Total</span><span id="q2-total" class="c-red">R$ 0</span></div></div></div></div>
   <div class="analise-card"><div class="ac-title">🗓 Parcelas em andamento</div><div id="parc-calendar"></div></div>
  </div>
 
  <!-- CHAT IA -->
-
  <div class="panel" id="panel-chat">
   <div class="chat-wrap">
    <div class="chat-header">
