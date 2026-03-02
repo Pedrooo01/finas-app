@@ -1,4 +1,8 @@
+Finas app 
+
+
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -8,6 +12,7 @@
 <meta name="theme-color" content="#e84c2b">
 
 <!-- PWA -->
+
 <link rel="manifest" href="manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -19,27 +24,30 @@
 <!-- ============================================================
   🔥 FIREBASE CONFIG — COLE SUAS CREDENCIAIS AQUI
 ============================================================ -->
+
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
 <script>
 
 // ⬇️ SUBSTITUA COM SUAS CREDENCIAIS DO FIREBASE
 const firebaseConfig = {
-  apiKey: "AIzaSyAMvPzOjgoO-OHgkV270NN1BFXWimHxG38",
-  authDomain: "finas-app-430a8.firebaseapp.com",
-  projectId: "finas-app-430a8",
-  storageBucket: "finas-app-430a8.firebasestorage.app",
-  messagingSenderId: "37160132569",
-  appId: "1:37160132569:web:1413256559764bc424c3c8",
-  measurementId: "G-YX7VCJ5HRX"
+  apiKey: "AIzaSyAMvPzOjgoO-OHgkV270NN1BFXWimHxG38",
+authDomain: "finas-app-430a8.firebaseapp.com",
+projectId: "finas-app-430a8",
+storageBucket: "finas-app-430a8.firebasestorage.app",
+messagingSenderId: "37160132569",
+appId: "1:37160132569:web:1413256559764bc424c3c8",
+measurementId: "G-YX7VCJ5HRX"
 };
-
 
 // ⬇️ COLE SUA CHAVE DA API ANTHROPIC AQUI (para o chat com IA)
 // Obtenha em: https://console.anthropic.com
 // ATENÇÃO: em produção, use um backend para proteger esta chave!
-const ANTHROPIC_KEY = "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" ;
+const ANTHROPIC_KEY = "COLE_SUA_ANTHROPIC_API_KEY_AQUI";
 // ⬆️ FIM DAS CREDENCIAIS
 
 firebase.initializeApp(firebaseConfig);
@@ -896,353 +904,470 @@ window.changeMes=changeMes;window.switchTab=switchTab;window.toggleCatCard=toggl
 window.sendChatMessage=sendChatMessage;
 </script>
 
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f5f2ec;--bg2:#ede9e1;--surface:#fff;--border:#d8d2c8;--border2:#c5bdb0;--text:#1a1714;--muted:#7a7068;--accent:#e84c2b;--accent2:#2b6de8;--accent3:#28a35c;--warn:#e8952b;--tag-bg:#f0ece4;--shadow-lg:0 8px 32px rgba(0,0,0,0.14)}
-html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:'Inconsolata',monospace;min-height:100vh;font-size:14px;line-height:1.5}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+:root{
+  --bg:#f7f7f8;--surface:#fff;--surface2:#f1f1f3;
+  --border:#e5e5ea;--border2:#ccccd4;
+  --text:#0f0f12;--muted:#8a8a96;--muted2:#b8b8c4;
+  --accent:#7c6ff7;--accent-soft:rgba(124,111,247,0.10);--accent-glow:rgba(124,111,247,0.30);
+  --green:#22c55e;--green-soft:rgba(34,197,94,0.10);
+  --red:#ef4444;--red-soft:rgba(239,68,68,0.10);
+  --orange:#f97316;--orange-soft:rgba(249,115,22,0.10);
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+  --shadow:0 4px 16px rgba(0,0,0,0.07);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
+  --r:16px;--r-sm:10px;
+}
+html{scroll-behavior:smooth;height:100%}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;min-height:100vh;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;position:relative}
+
+/* NOISE TEXTURE */
+body::before{content:’’;position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.022;
+background-image:url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’/%3E%3C/svg%3E”);
+background-size:180px 180px}
+#loading-overlay,#auth-screen,#onboard-screen,#app-screen,.drawer,.drawer-overlay,.modal-overlay{position:relative;z-index:1}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+@keyframes ripple{0%{transform:scale(0);opacity:0.4}100%{transform:scale(2.5);opacity:0}}
+@keyframes slideLeft{from{transform:translateX(0)}to{transform:translateX(-80px)}}
+@keyframes popIn{0%{opacity:0;transform:scale(0.95) translateY(8px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+
+/* RIPPLE */
+.ripple-wrap{position:relative;overflow:hidden}
+.ripple-wrap::after{content:’’;position:absolute;border-radius:50%;background:rgba(124,111,247,0.18);width:100px;height:100px;left:50%;top:50%;transform:scale(0);animation:none;pointer-events:none;margin-left:-50px;margin-top:-50px}
+.ripple-wrap.rippling::after{animation:ripple 0.5s ease-out forwards}
 
 /* LOADING */
-#loading-overlay{position:fixed;inset:0;background:rgba(245,242,236,0.95);z-index:9999;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-.loading-spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-#loading-msg{font-size:13px;color:var(--muted)}
+#loading-overlay{position:fixed;inset:0;background:rgba(247,247,248,0.96);z-index:9999;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;backdrop-filter:blur(4px)}
+.loading-spinner{width:30px;height:30px;border:2.5px solid var(–border2);border-top-color:var(–accent);border-radius:50%;animation:spin 0.7s linear infinite}
+#loading-msg{font-size:13px;color:var(–muted);font-weight:500}
 
-/* AUTH */
-#auth-screen{position:fixed;inset:0;background:var(--bg);z-index:100;display:flex;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
-.auth-wrap{width:100%;max-width:400px;padding-bottom:40px}
-.auth-logo{font-family:'Bricolage Grotesque',sans-serif;font-size:36px;font-weight:800;text-align:center;margin-bottom:6px}
-.auth-logo span{color:var(--accent)}
-.auth-tagline{text-align:center;font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
-.auth-card{background:var(--surface);border:2px solid var(--border);border-radius:20px;padding:26px;box-shadow:var(--shadow-lg)}
-.auth-tabs{display:flex;gap:3px;background:var(--bg2);border-radius:10px;padding:3px;margin-bottom:20px}
-.auth-tab{flex:1;text-align:center;padding:8px;border-radius:7px;cursor:pointer;font-size:12px;font-weight:500;transition:all 0.2s;color:var(--muted)}
-.auth-tab-active{background:var(--surface);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,0.1);font-weight:700}
-.btn-google{width:100%;padding:12px;background:var(--surface);color:var(--text);border:2px solid var(--border);border-radius:10px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;transition:all 0.2s;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:9px}
-.btn-google:hover{border-color:var(--accent2);background:#f0f4ff}
+/* ─── AUTH ─── */
+#auth-screen{position:fixed;inset:0;background:var(–bg);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;overflow-y:auto}
+.auth-wrap{width:100%;max-width:380px;animation:fadeUp 0.4s ease}
+.auth-logo{font-size:44px;font-weight:800;text-align:center;margin-bottom:4px;letter-spacing:-2.5px}
+.auth-logo span{color:var(–accent)}
+.auth-tagline{text-align:center;font-size:11px;color:var(–muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:30px;font-weight:600}
+.auth-card{background:var(–surface);border:1px solid var(–border);border-radius:24px;padding:26px;box-shadow:var(–shadow-lg)}
+.auth-tabs{display:flex;gap:3px;background:var(–surface2);border-radius:12px;padding:3px;margin-bottom:20px}
+.auth-tab{flex:1;text-align:center;padding:9px;border-radius:9px;cursor:pointer;font-size:13px;font-weight:500;transition:all 0.2s;color:var(–muted)}
+.auth-tab-active{background:var(–surface);color:var(–text);box-shadow:var(–shadow-sm);font-weight:700}
+.btn-google{width:100%;padding:13px;background:var(–surface);color:var(–text);border:1.5px solid var(–border);border-radius:12px;cursor:pointer;font-weight:600;font-size:13px;transition:all 0.22s;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit}
+.btn-google:hover{border-color:var(–accent);background:var(–accent-soft);transform:translateY(-1px)}
+.btn-google:active{transform:translateY(0)}
 .auth-divider{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.auth-divider span{font-size:10px;color:var(--muted)}
-.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.auth-divider span{font-size:11px;color:var(–muted2);font-weight:500}
+.auth-divider::before,.auth-divider::after{content:’’;flex:1;height:1px;background:var(–border)}
 .auth-field{margin-bottom:11px}
-.auth-field label{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-.auth-field input{width:100%;padding:11px 12px;border:1.5px solid var(--border);border-radius:9px;font-family:'Inconsolata',monospace;font-size:13px;background:var(--bg);color:var(--text);outline:none;transition:border-color 0.2s}
-.auth-field input:focus{border-color:var(--accent);background:var(--surface)}
-.btn-auth{width:100%;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:10px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;transition:all 0.2s;margin-top:3px}
-.btn-auth:hover{opacity:0.9}
-.auth-link{background:none;border:none;color:var(--accent2);cursor:pointer;font-size:11px;text-decoration:underline;font-family:'Inconsolata',monospace;margin-top:9px;display:block;text-align:center}
-.auth-benefits{margin-top:18px;display:flex;flex-direction:column;gap:6px}
-.ab-item{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}
+.auth-field label{display:block;font-size:10px;font-weight:700;color:var(–muted);margin-bottom:4px;letter-spacing:0.5px;text-transform:uppercase}
+.auth-field input{width:100%;padding:12px 14px;border:1.5px solid var(–border);border-radius:10px;font-family:inherit;font-size:14px;background:var(–bg);color:var(–text);outline:none;transition:all 0.2s}
+.auth-field input:focus{border-color:var(–accent);background:var(–surface);box-shadow:0 0 0 3px var(–accent-soft)}
+.btn-auth{width:100%;padding:13px;background:var(–accent);color:#fff;border:none;border-radius:12px;cursor:pointer;font-family:inherit;font-weight:700;font-size:14px;transition:all 0.22s;margin-top:4px}
+.btn-auth:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 6px 18px var(–accent-glow)}
+.btn-auth:active{transform:translateY(0)}
+.auth-link{background:none;border:none;color:var(–accent);cursor:pointer;font-size:12px;font-family:inherit;margin-top:10px;display:block;text-align:center;font-weight:500}
+.auth-benefits{margin-top:18px;display:flex;flex-direction:column;gap:7px}
+.ab-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(–muted);font-weight:500}
 
-/* ONBOARDING */
-#onboard-screen{position:fixed;inset:0;background:var(--bg);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
-.ob-wrap{width:100%;max-width:480px;padding-bottom:40px}
-.ob-header{text-align:center;margin-bottom:18px}
-.ob-logo{font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800}.ob-logo span{color:var(--accent)}
-.ob-card{background:var(--surface);border:2px solid var(--border);border-radius:22px;padding:24px;box-shadow:var(--shadow-lg)}
-.ob-step{display:none}.ob-step.active{display:block;animation:fadeUp 0.3s ease}
-.step-indicator{display:flex;gap:6px;margin-bottom:14px}
-.si-dot{width:28px;height:4px;border-radius:2px;background:var(--border);transition:all 0.3s}
-.si-dot.done{background:var(--accent3)}.si-dot.active{background:var(--accent);width:40px}
-.ob-q{font-family:'Bricolage Grotesque',sans-serif;font-size:19px;font-weight:800;margin-bottom:3px;line-height:1.2}
-.ob-hint{font-size:12px;color:var(--muted);margin-bottom:13px;line-height:1.5}
-.pg{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}
-.pc{border:2px solid var(--border);border-radius:12px;padding:10px;cursor:pointer;transition:all 0.18s;background:var(--tag-bg)}
-.pc:hover{border-color:var(--accent2)}.pc.sel{border-color:var(--accent);background:#fff5f3}
-.pc-icon{font-size:19px;margin-bottom:2px}.pc-name{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:700}.pc-desc{font-size:10px;color:var(--muted);line-height:1.3}
-.ob-field{margin-bottom:11px}.ob-field label{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-.ob-field input,.ob-field select{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:9px;font-family:'Inconsolata',monospace;font-size:13px;background:var(--bg);color:var(--text);outline:none;transition:border-color 0.2s}
-.ob-field input:focus{border-color:var(--accent);background:var(--surface)}
-.ob-grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.freq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:12px}
-.fq-btn{border:2px solid var(--border);border-radius:10px;padding:9px;text-align:center;cursor:pointer;transition:all 0.18s;background:var(--tag-bg)}
-.fq-btn:hover{border-color:var(--accent2)}.fq-btn.sel{border-color:var(--accent);background:#fff5f3}
-.fq-icon{font-size:16px;margin-bottom:2px}.fq-name{font-size:11px;font-weight:600}.fq-desc{font-size:9px;color:var(--muted)}
-.obj-list{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}
-.obj-item{border:2px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all 0.18s;background:var(--tag-bg);display:flex;align-items:center;gap:9px}
-.obj-item:hover{border-color:var(--accent2)}.obj-item.sel{border-color:var(--accent);background:#fff5f3}
-.obj-icon{font-size:15px;flex-shrink:0}.obj-name{font-size:12px;font-weight:600}.obj-sub{font-size:10px;color:var(--muted)}
-.btn-ob-next{width:100%;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:10px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;transition:all 0.2s}
-.btn-ob-next:hover{opacity:0.9}
-.btn-ob-back{background:none;border:none;color:var(--muted);cursor:pointer;font-size:11px;text-decoration:underline;margin-top:8px;display:block;text-align:center}
+/* ─── ONBOARDING ─── */
+#onboard-screen{position:fixed;inset:0;background:var(–bg);z-index:100;display:none;align-items:center;justify-content:center;padding:24px;overflow-y:auto}
+.ob-wrap{width:100%;max-width:440px;animation:fadeUp 0.3s ease}
+.ob-header{text-align:center;margin-bottom:16px}
+.ob-logo{font-size:28px;font-weight:800;letter-spacing:-1.5px}.ob-logo span{color:var(–accent)}
+.ob-card{background:var(–surface);border:1px solid var(–border);border-radius:24px;padding:24px;box-shadow:var(–shadow-lg)}
+.ob-step{display:none}.ob-step.active{display:block;animation:fadeUp 0.28s ease}
+.step-indicator{display:flex;gap:5px;margin-bottom:16px}
+.si-dot{height:3px;border-radius:2px;background:var(–border);transition:all 0.3s;flex:1}
+.si-dot.done{background:var(–green)}.si-dot.active{background:var(–accent)}
+.ob-q{font-size:19px;font-weight:800;margin-bottom:4px;letter-spacing:-0.3px}
+.ob-hint{font-size:13px;color:var(–muted);margin-bottom:14px;line-height:1.6;font-weight:500}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.pc{border:1.5px solid var(–border);border-radius:14px;padding:14px;cursor:pointer;transition:all 0.18s;background:var(–surface)}
+.pc:hover{border-color:var(–accent);background:var(–accent-soft);transform:translateY(-1px)}
+.pc.sel{border-color:var(–accent);background:var(–accent-soft)}
+.pc-icon{font-size:22px;margin-bottom:5px}.pc-name{font-size:13px;font-weight:700}.pc-desc{font-size:11px;color:var(–muted);margin-top:2px;line-height:1.4}
+.ob-field{margin-bottom:11px}.ob-field label{display:block;font-size:10px;font-weight:700;color:var(–muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px}
+.ob-field input,.ob-field select{width:100%;padding:11px 13px;border:1.5px solid var(–border);border-radius:10px;font-family:inherit;font-size:13px;background:var(–bg);color:var(–text);outline:none;transition:all 0.2s}
+.ob-field input:focus,.ob-field select:focus{border-color:var(–accent);background:var(–surface);box-shadow:0 0 0 3px var(–accent-soft)}
+.ob-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.freq-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.fq-btn{border:1.5px solid var(–border);border-radius:12px;padding:12px;text-align:center;cursor:pointer;transition:all 0.18s;background:var(–surface)}
+.fq-btn:hover{border-color:var(–accent)}.fq-btn.sel{border-color:var(–accent);background:var(–accent-soft)}
+.fq-icon{font-size:18px;margin-bottom:3px}.fq-name{font-size:12px;font-weight:700}.fq-desc{font-size:10px;color:var(–muted)}
+.obj-list{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.obj-item{border:1.5px solid var(–border);border-radius:12px;padding:12px 14px;cursor:pointer;transition:all 0.18s;background:var(–surface);display:flex;align-items:center;gap:10px}
+.obj-item:hover{border-color:var(–accent)}.obj-item.sel{border-color:var(–accent);background:var(–accent-soft)}
+.obj-icon{font-size:18px;flex-shrink:0}.obj-name{font-size:13px;font-weight:700}.obj-sub{font-size:11px;color:var(–muted)}
+.btn-ob-next{width:100%;padding:13px;background:var(–accent);color:#fff;border:none;border-radius:12px;cursor:pointer;font-family:inherit;font-weight:700;font-size:14px;transition:all 0.2s}
+.btn-ob-next:hover{opacity:0.9;transform:translateY(-1px)}
+.btn-ob-back{background:none;border:none;color:var(–muted);cursor:pointer;font-size:12px;font-family:inherit;margin-top:9px;display:block;text-align:center;font-weight:500}
 
-/* APP */
-#app-screen{max-width:860px;margin:0 auto;padding:18px 14px;display:none}
-.app-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:1.5px solid var(--border)}
-.hl h1{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800}.hl .sub{font-size:11px;color:var(--muted);margin-top:2px}
-.header-right{display:flex;align-items:center;gap:7px}
-.plan-badge{display:flex;align-items:center;gap:4px;font-size:10px;padding:5px 10px;border-radius:20px;font-weight:600;cursor:pointer;transition:all 0.2s;border:1.5px solid}
-.plan-badge.free{background:#fff8f0;border-color:var(--warn);color:var(--warn)}.plan-badge.pro{background:#f0f4ff;border-color:var(--accent2);color:var(--accent2)}
-.btn-icon{background:var(--surface);border:1.5px solid var(--border);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:all 0.2s}
-.btn-icon:hover{border-color:var(--accent)}
-
-/* DRAWER */
-.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:900;opacity:0;pointer-events:none;transition:opacity 0.3s}
-.drawer-overlay.open{opacity:1;pointer-events:all}
-.drawer{position:fixed;top:0;right:0;bottom:0;width:min(380px,100vw);background:var(--surface);z-index:901;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;box-shadow:-8px 0 32px rgba(0,0,0,0.12)}
-.drawer.open{transform:translateX(0)}
-.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1.5px solid var(--border);position:sticky;top:0;background:var(--surface);z-index:1}
-.drawer-title{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:800}
-.btn-drawer-close{background:none;border:1.5px solid var(--border);border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
-.btn-drawer-close:hover{border-color:var(--accent);color:var(--accent)}
-.drawer-body{padding:16px}
-.drawer-nav{display:flex;flex-direction:column;gap:2px;margin-bottom:16px}
-.drawer-nav-item{display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:9px;cursor:pointer;transition:all 0.2s;font-size:12px;font-weight:500;border:none;background:none;width:100%;text-align:left;color:var(--text)}
-.drawer-nav-item:hover{background:var(--tag-bg)}.drawer-nav-item.active{background:var(--tag-bg);font-weight:600}
-.drawer-nav-item .dni{font-size:15px;width:20px;text-align:center}.drawer-nav-item .dna{margin-left:auto;font-size:9px;color:var(--muted)}
-.drawer-section{display:none;animation:fadeUp 0.25s ease}.drawer-section.active{display:block}
-.ds-title{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:800;margin-bottom:13px;padding-bottom:8px;border-bottom:1.5px solid var(--border)}
-.pf-field{margin-bottom:10px}.pf-field label{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-.pf-field input,.pf-field select{width:100%;padding:9px 11px;border:1.5px solid var(--border);border-radius:8px;font-family:'Inconsolata',monospace;font-size:12px;background:var(--bg);color:var(--text);outline:none;transition:border-color 0.2s}
-.pf-field input:focus,.pf-field select:focus{border-color:var(--accent);background:var(--surface)}
-.pf-grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.btn-save-profile{width:100%;padding:11px;background:var(--accent);color:#fff;border:none;border-radius:9px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:12px;margin-top:5px;transition:all 0.2s}
-.btn-save-profile:hover{opacity:0.9}
-.plans-grid{display:flex;flex-direction:column;gap:11px}
-.plan-card{border:2px solid var(--border);border-radius:13px;padding:16px;position:relative;overflow:hidden}
-.plan-card.featured{border-color:var(--accent2);background:linear-gradient(135deg,#f0f4ff 0%,#fff 100%)}
-.plan-badge-tag{position:absolute;top:11px;right:11px;background:var(--accent2);color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px}
-.plan-name{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;margin-bottom:3px}
-.plan-price{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;line-height:1;margin-bottom:3px}
-.plan-price span{font-size:11px;font-weight:400;color:var(--muted)}
-.plan-desc{font-size:10px;color:var(--muted);margin-bottom:11px;line-height:1.5}
-.plan-features{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
-.pf-item{display:flex;align-items:center;gap:7px;font-size:11px}
-.pf-item.locked{color:var(--muted);text-decoration:line-through;opacity:0.55}
-.btn-plan{width:100%;padding:10px;border-radius:8px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:12px;transition:all 0.2s;border:2px solid}
-.btn-plan.free-btn{background:var(--tag-bg);border-color:var(--border);color:var(--text)}
-.btn-plan.pro-btn{background:var(--accent2);border-color:var(--accent2);color:#fff}.btn-plan.pro-btn:hover{opacity:0.9}
-.trial-info{text-align:center;font-size:10px;color:var(--muted);margin-top:6px}
-.support-item{display:flex;align-items:center;gap:10px;padding:12px;border:1.5px solid var(--border);border-radius:10px;margin-bottom:8px;cursor:pointer;transition:all 0.2s;text-decoration:none;color:var(--text)}
-.support-item:hover{border-color:var(--accent2);background:#f0f4ff}
-.support-icon{font-size:19px;flex-shrink:0}.support-title{font-size:12px;font-weight:600}.support-sub{font-size:10px;color:var(--muted)}
-.faq-item{border:1.5px solid var(--border);border-radius:9px;margin-bottom:6px;overflow:hidden}
-.faq-q{padding:10px 12px;cursor:pointer;font-size:11px;font-weight:600;display:flex;justify-content:space-between;transition:background 0.2s}
-.faq-q:hover{background:var(--tag-bg)}
-.faq-a{display:none;padding:0 12px 10px;font-size:11px;color:var(--muted);line-height:1.6}.faq-a.open{display:block}
-.sobre-logo{font-family:'Bricolage Grotesque',sans-serif;font-size:30px;font-weight:800;text-align:center;margin-bottom:3px}.sobre-logo span{color:var(--accent)}
-.sobre-version{font-size:10px;color:var(--muted);letter-spacing:2px;text-align:center;text-transform:uppercase;margin-bottom:14px}
-.sobre-text{font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:12px}
-.sobre-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
-.ss-item{background:var(--tag-bg);border-radius:9px;padding:10px;text-align:center}
-.ss-val{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;color:var(--accent)}.ss-lbl{font-size:10px;color:var(--muted)}
-.sobre-links{display:flex;gap:6px}
-.sobre-link{flex:1;padding:9px;border:1.5px solid var(--border);border-radius:8px;text-align:center;font-size:10px;color:var(--muted);cursor:pointer;transition:all 0.2s;background:none;font-family:'Inconsolata',monospace}
-.sobre-link:hover{border-color:var(--accent);color:var(--accent)}
-.arquivo-item{background:var(--tag-bg);border:1.5px solid var(--border);border-radius:9px;padding:10px 12px;display:flex;align-items:center;gap:8px;margin-bottom:7px;opacity:0.75}
-.btn-reativar{background:none;border:1.5px solid var(--border);border-radius:6px;padding:3px 8px;font-size:10px;cursor:pointer;transition:all 0.2s;color:var(--muted);font-family:'Inconsolata',monospace;white-space:nowrap}
-.btn-reativar:hover{border-color:var(--accent3);color:var(--accent3)}
-
-/* MÊS */
-.mes-selector{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1.5px solid var(--border);border-radius:11px;padding:10px 14px;margin-bottom:14px}
-.mes-nav{background:none;border:none;cursor:pointer;font-size:17px;color:var(--muted);padding:2px 7px;border-radius:7px;transition:all 0.2s}
-.mes-nav:hover{background:var(--bg2);color:var(--text)}.mes-label{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700}
-.mes-tag{font-size:9px;background:var(--tag-bg);border:1px solid var(--border);padding:2px 7px;border-radius:20px;color:var(--muted)}
-.mes-tag.atual{background:#d4f0e3;border-color:var(--accent3);color:var(--accent3)}
-
-/* TOP CARDS */
-.top-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
-.top-cards-row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
-.tc{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;padding:12px;transition:border-color 0.2s}
-.tc:hover{border-color:var(--border2)}.tc.danger{border-color:var(--accent);background:#fff8f7}.tc.good{border-color:var(--accent3);background:#f4fbf7}.tc.warn{border-color:var(--warn);background:#fffbf5}
-.tc-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
-.tc-val{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;line-height:1}.tc-sub{font-size:10px;color:var(--muted);margin-top:3px}
-.c-red{color:var(--accent)}.c-green{color:var(--accent3)}.c-blue{color:var(--accent2)}.c-warn{color:var(--warn)}
-
-/* HEALTH BAR */
-.health-bar-wrap{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;padding:13px;margin-bottom:14px}
-.hb-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
-.hb-title{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:700}.hb-pct{font-size:11px;font-weight:600}
-.bar-track{height:8px;background:var(--bg2);border-radius:4px;position:relative}
-.bar-fill{height:100%;border-radius:4px;transition:width 0.6s ease,background 0.3s;position:relative}
-.bar-fill::after{content:'';position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:14px;height:14px;border-radius:50%;background:inherit;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.2)}
-
-/* METAS */
-.metas-wrap{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;padding:13px;margin-bottom:14px}
-.metas-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.metas-title{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:700}
-.btn-add-meta{background:none;border:1.5px dashed var(--border2);border-radius:7px;padding:3px 9px;cursor:pointer;font-size:10px;color:var(--muted);font-family:'Inconsolata',monospace;transition:all 0.2s}
-.btn-add-meta:hover{border-color:var(--accent);color:var(--accent)}
-.metas-list{display:flex;flex-direction:column;gap:7px}
-.meta-item{border:1.5px solid var(--border);border-radius:9px;padding:10px 11px}
-.mi-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-.mi-name{font-size:11px;font-weight:600}.mi-status{font-size:9px;padding:2px 6px;border-radius:20px;font-weight:600}
-.mi-status.ok{background:#d4f0e3;color:#1e7a43}.mi-status.warn{background:#fde8c8;color:#b06010}.mi-status.fail{background:#fde8e3;color:#c73520}
-.mi-vals{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:4px}
-.mi-bar-track{height:4px;background:var(--bg2);border-radius:2px;overflow:hidden}
-.mi-bar-fill{height:100%;border-radius:2px;transition:width 0.5s,background 0.3s}
-.mi-del{background:none;border:none;cursor:pointer;color:var(--border2);font-size:11px;padding:2px}
-.mi-del:hover{color:var(--accent)}
-.meta-form-inline{background:var(--tag-bg);border:1.5px dashed var(--border2);border-radius:9px;padding:11px;margin-top:7px;display:none}
-.meta-form-inline.show{display:block;animation:fadeUp 0.2s ease}
-.mf-grid{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:7px;align-items:end}
-.mf-grid .fg label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;display:block}
-.mf-grid .fg input,.mf-grid .fg select{padding:7px 9px;border:1.5px solid var(--border);border-radius:7px;font-family:'Inconsolata',monospace;font-size:11px;background:var(--surface);color:var(--text);outline:none;width:100%}
-.mf-grid .fg input:focus{border-color:var(--accent)}
-.btn-meta-save{padding:7px 11px;background:var(--accent);color:#fff;border:none;border-radius:7px;cursor:pointer;font-weight:700;font-size:11px;white-space:nowrap;font-family:'Bricolage Grotesque',sans-serif}
+/* ─── APP ─── */
+#app-screen{display:none;min-height:100vh;padding-bottom:96px}
+.app-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 0;position:sticky;top:0;z-index:50;background:rgba(247,247,248,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.hl-logo{font-size:22px;font-weight:800;letter-spacing:-1px}
+.hl-logo span{color:var(–accent)}
+.hl-greeting{font-size:12px;color:var(–muted);font-weight:500;margin-top:1px}
+.header-right{display:flex;align-items:center;gap:8px}
+.plan-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:5px 11px;border-radius:20px;font-weight:700;cursor:pointer;border:1.5px solid;transition:all 0.2s}
+.plan-badge:hover{transform:translateY(-1px)}
+.plan-badge.free{background:var(–orange-soft);border-color:var(–orange);color:var(–orange)}
+.plan-badge.pro{background:var(–accent-soft);border-color:var(–accent);color:var(–accent)}
+.btn-avatar{width:36px;height:36px;border-radius:50%;background:var(–accent-soft);border:2px solid var(–accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;font-weight:800;color:var(–accent);transition:all 0.2s}
+.btn-avatar:hover{transform:scale(1.06)}
 
 /* TRIAL BANNER */
-.trial-banner{background:linear-gradient(135deg,#fff8f0,#fff5f3);border:1.5px solid var(--warn);border-radius:10px;padding:10px 13px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.trial-banner-text{font-size:11px;color:var(--text)}.trial-banner-text strong{color:var(--accent)}
-.btn-trial-upgrade{padding:6px 11px;background:var(--accent);color:#fff;border:none;border-radius:7px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:10px;white-space:nowrap}
+.trial-banner{background:linear-gradient(135deg,var(–orange-soft),var(–accent-soft));border:1.5px solid var(–orange);border-radius:14px;padding:11px 15px;margin:12px 20px 0;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.trial-banner-text{font-size:12px;font-weight:500}
+.trial-banner-text strong{color:var(–orange)}
+.btn-trial-upgrade{padding:6px 12px;background:var(–orange);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:inherit;font-weight:700;font-size:11px;white-space:nowrap;transition:all 0.2s}
+.btn-trial-upgrade:hover{opacity:0.9}
 
-/* TABS — scrollável no mobile */
-.tabs-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px;-ms-overflow-style:none;scrollbar-width:none}
-.tabs-wrap::-webkit-scrollbar{display:none}
-.tabs{display:flex;gap:3px;background:var(--bg2);border-radius:10px;padding:3px;min-width:max-content}
-.tab{flex:1;text-align:center;padding:7px 12px;border-radius:7px;cursor:pointer;font-size:10px;font-weight:500;transition:all 0.2s;color:var(--muted);white-space:nowrap}
-.tab.active{background:var(--surface);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,0.1);font-weight:600}
-.panel{display:none}.panel.active{display:block;animation:fadeUp 0.25s ease}
+/* ─── BOTTOM NAV ─── */
+.bottom-nav-wrap{position:fixed;bottom:0;left:0;right:0;z-index:200;padding:10px 18px max(18px,env(safe-area-inset-bottom));pointer-events:none}
+.bottom-nav{
+background:rgba(255,255,255,0.92);
+border-radius:28px;padding:7px;
+display:flex;align-items:center;justify-content:space-around;
+box-shadow:0 2px 40px rgba(0,0,0,0.10),0 0 0 1px var(–border);
+pointer-events:all;max-width:480px;margin:0 auto;
+backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)
+}
+.bn-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;border-radius:20px;padding:9px 4px;transition:all 0.22s;user-select:none;-webkit-tap-highlight-color:transparent}
+.bn-icon-wrap{width:48px;height:44px;border-radius:16px;display:flex;align-items:center;justify-content:center;transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+.bn-icon-wrap svg{width:22px;height:22px;stroke:var(–muted);transition:all 0.25s;stroke-width:1.8}
+.bn-label{font-size:10px;font-weight:600;color:var(–muted);transition:all 0.22s;letter-spacing:0.2px}
+.bn-item.active .bn-icon-wrap{background:var(–accent);box-shadow:0 4px 20px var(–accent-glow);transform:translateY(-2px) scale(1.04)}
+.bn-item.active .bn-icon-wrap svg{stroke:#fff}
+.bn-item.active .bn-label{color:var(–accent);font-weight:700}
+.bn-item:active .bn-icon-wrap{transform:scale(0.92)}
 
-/* FORM */
-.form-section{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;padding:15px;margin-bottom:13px}
-.fs-title{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:700;margin-bottom:11px;display:flex;align-items:center;justify-content:space-between}
-.fs-tag{font-size:9px;font-family:'Inconsolata',monospace;font-weight:400;color:var(--muted);background:var(--tag-bg);padding:2px 7px;border-radius:20px}
-.tipo-select{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
-.tb{border:1.5px solid var(--border);border-radius:7px;padding:7px 4px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--tag-bg)}
-.tb:hover{border-color:var(--accent2)}.tb.sel-gasto{border-color:var(--accent);background:#fff5f3}.tb.sel-recebimento{border-color:var(--accent3);background:#f4fbf7}.tb.sel-divida{border-color:var(--warn);background:#fff8f0}.tb.sel-investimento{border-color:var(--accent2);background:#f0f4ff}
-.tb .ti{font-size:15px;margin-bottom:2px}.tb .tn{font-size:9px;font-weight:600}
-/* recorrência */
-.recorr-select{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
-.rb{border:1.5px solid var(--border);border-radius:7px;padding:8px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--tag-bg);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:5px}
-.rb:hover{border-color:var(--accent2)}.rb.sel{border-color:var(--accent);background:#fff5f3}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}.form-row.tri{grid-template-columns:1fr 1fr 1fr}
-.fg{display:flex;flex-direction:column;gap:3px}
-.fg label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
-.fg input,.fg select{padding:9px 10px;border:1.5px solid var(--border);border-radius:7px;font-family:'Inconsolata',monospace;font-size:12px;background:var(--bg);color:var(--text);outline:none;transition:border-color 0.2s}
-.fg input:focus,.fg select:focus{border-color:var(--accent);background:var(--surface)}
-.parc-toggle{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--tag-bg);border:1.5px solid var(--border);border-radius:7px;cursor:pointer;transition:all 0.2s;margin-bottom:8px;user-select:none}
-.parc-toggle:hover{border-color:var(--accent2)}.parc-toggle input{accent-color:var(--accent);width:13px;height:13px}
-.parc-toggle-lbl{font-size:10px;color:var(--muted);flex:1}.parc-toggle-lbl strong{color:var(--text)}
-.parc-fields{display:none}.parc-fields.show{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;animation:fadeUp 0.2s ease}
-.btn-save{width:100%;padding:11px;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:12px;transition:all 0.2s}
-.btn-save:hover{opacity:0.9}
+/* ─── PANELS ─── */
+.panel{display:none;animation:fadeUp 0.26s ease}.panel.active{display:block}
+.panel-inner{padding:16px 20px}
 
-/* FILTROS */
-.filter-row{display:flex;gap:5px;margin-bottom:11px;flex-wrap:wrap}
-.fb{padding:4px 10px;border-radius:20px;border:1.5px solid var(--border);background:var(--tag-bg);cursor:pointer;font-size:10px;font-family:'Inconsolata',monospace;transition:all 0.2s;color:var(--muted)}
-.fb.active,.fb:hover{border-color:var(--accent);background:#fff5f3;color:var(--accent)}
+/* HOME */
+.month-selector{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.month-nav{background:var(–surface2);border:none;border-radius:10px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;color:var(–muted)}
+.month-nav svg{width:18px;height:18px;stroke:currentColor;stroke-width:2}
+.month-nav:hover{background:var(–border2);color:var(–text);transform:scale(1.05)}
+.month-nav:active{transform:scale(0.95)}
+.month-info{text-align:center}
+.month-name{font-size:17px;font-weight:800;letter-spacing:-0.3px}
+.month-tag{font-size:11px;color:var(–muted);font-weight:600;margin-top:1px}
+.month-tag.atual{color:var(–accent)}
 
-/* LISTA */
-.lista-group-header{display:flex;justify-content:space-between;align-items:center;padding:8px 2px;margin-top:6px;margin-bottom:4px;border-bottom:1.5px solid var(--border)}
-.lgh-label{font-size:11px;font-weight:700;color:var(--text)}
-.lgh-total{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:700;color:var(--accent)}
-.gastos-lista{display:flex;flex-direction:column;gap:5px}
-.gi{background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:10px 11px;display:flex;align-items:center;gap:8px;transition:all 0.2s;animation:fadeUp 0.2s ease}
-.gi:hover{border-color:var(--border2);box-shadow:0 2px 7px rgba(0,0,0,0.05)}
-.gi-icon{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
-.gi-body{flex:1;min-width:0}.gi-title{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.gi-meta{font-size:10px;color:var(--muted);margin-top:2px;display:flex;gap:5px;flex-wrap:wrap;align-items:center}
-.gi-badge{display:inline-block;font-size:9px;padding:1px 5px;border-radius:20px;border:1px solid;font-weight:500}
-.gi-right{text-align:right;flex-shrink:0}.gi-val{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:700}.gi-parc{font-size:10px;color:var(--muted);margin-top:1px}
-.gi-del{background:none;border:none;cursor:pointer;color:var(--border2);font-size:11px;padding:2px;transition:color 0.2s;margin-left:2px}.gi-del:hover{color:var(--accent)}
-.pp-bar{height:3px;background:var(--bg2);border-radius:2px;margin-top:3px;overflow:hidden}.pp-fill{height:100%;border-radius:2px;background:var(--warn)}
-.expired-tag{font-size:9px;background:#d4f0e3;color:#1e7a43;border:1px solid #a8d5b8;padding:1px 5px;border-radius:20px}
+.summary-card{background:var(–surface);border-radius:22px;padding:22px;margin-bottom:12px;box-shadow:var(–shadow);border:1px solid var(–border);overflow:hidden;position:relative;transition:transform 0.2s,box-shadow 0.2s}
+.summary-card:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,0.09)}
+.sc-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(–accent),var(–green))}
+.sc-label{font-size:11px;font-weight:700;color:var(–muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.sc-value{font-size:34px;font-weight:800;letter-spacing:-1.5px;line-height:1;margin-bottom:3px}
+.sc-value.red{color:var(–red)}.sc-value.green{color:var(–green)}
+.sc-sub{font-size:12px;color:var(–muted);font-weight:500}
 
-/* CATEGORIAS */
-.cat-card{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;margin-bottom:8px;overflow:hidden;transition:border-color 0.2s}
-.cat-card:hover{border-color:var(--border2)}
-.cat-card-header{display:flex;align-items:center;justify-content:space-between;padding:13px;cursor:pointer}
-.cch-left{display:flex;align-items:center;gap:10px}
-.cch-icon{font-size:22px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--tag-bg);border-radius:8px}
-.cch-name{font-size:12px;font-weight:700;text-transform:capitalize}
-.cch-sub{font-size:10px;color:var(--muted);margin-top:1px}
-.cch-right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
-.cch-total{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:800;color:var(--accent)}
-.cch-sub2{font-size:10px;color:var(--muted)}
-.cch-arrow{font-size:16px;color:var(--muted);margin-left:6px;transition:transform 0.2s;display:inline-block}
-.cat-bar-track{height:3px;background:var(--bg2)}.cat-bar-fill{height:100%;transition:width 0.5s,background 0.3s}
-.cat-items{border-top:1.5px solid var(--border);padding:10px 13px;display:flex;flex-direction:column;gap:6px}
-.cat-sub-item{display:flex;align-items:center;gap:7px;font-size:11px}
-.csi-tag{width:22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:5px;font-size:11px;flex-shrink:0}
-.csi-tag.fixo{background:#f0f4ff}.csi-tag.variavel{background:var(--tag-bg)}
-.csi-name{flex:1;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.csi-dia{font-size:9px;color:var(--muted);flex-shrink:0}
-.csi-val{font-weight:700;color:var(--accent);flex-shrink:0}
+.mini-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.mini-card{background:var(–surface);border-radius:18px;padding:16px;box-shadow:var(–shadow);border:1px solid var(–border);transition:all 0.2s;cursor:default}
+.mini-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.09)}
+.mc-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:9px}
+.mc-icon svg{width:16px;height:16px}
+.mc-icon.green{background:var(–green-soft)}.mc-icon.green svg{stroke:var(–green)}
+.mc-icon.red{background:var(–red-soft)}.mc-icon.red svg{stroke:var(–red)}
+.mc-icon.accent{background:var(–accent-soft)}.mc-icon.accent svg{stroke:var(–accent)}
+.mc-icon.orange{background:var(–orange-soft)}.mc-icon.orange svg{stroke:var(–orange)}
+.mc-label{font-size:10px;color:var(–muted);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.mc-value{font-size:18px;font-weight:800;letter-spacing:-0.5px}
+.mc-value.red{color:var(–red)}.mc-value.green{color:var(–green)}.mc-value.accent{color:var(–accent)}.mc-value.orange{color:var(–orange)}
+.mc-sub{font-size:10px;color:var(–muted);margin-top:2px;font-weight:500}
 
-/* GRÁFICO */
-.chart-section{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;padding:15px;margin-bottom:13px;position:relative}
-.chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}
-.chart-title{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:700}
-.chart-legend{display:flex;gap:9px;flex-wrap:wrap}
-.cl-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--muted)}.cl-dot{width:7px;height:7px;border-radius:50%}
+.progress-card{background:var(–surface);border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:var(–shadow);border:1px solid var(–border)}
+.pc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.pc-title{font-size:13px;font-weight:700}.pc-pct{font-size:14px;font-weight:800;color:var(–accent)}
+.progress-track{height:8px;background:var(–surface2);border-radius:4px;position:relative}
+.progress-fill{height:100%;border-radius:4px;transition:width 0.8s cubic-bezier(0.4,0,0.2,1),background 0.4s;position:relative}
+.progress-fill::after{content:’’;position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:16px;height:16px;border-radius:50%;background:inherit;border:2.5px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.15)}
+.pc-legend{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pcl-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(–muted);font-weight:500}
+.pcl-dot{width:7px;height:7px;border-radius:50%}
+
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}
+.section-title{font-size:15px;font-weight:800;letter-spacing:-0.2px}
+.btn-sm{background:none;border:1.5px solid var(–border);border-radius:8px;padding:5px 12px;cursor:pointer;font-size:11px;color:var(–muted);font-family:inherit;font-weight:700;transition:all 0.2s;display:flex;align-items:center;gap:5px}
+.btn-sm svg{width:12px;height:12px;stroke:currentColor}
+.btn-sm:hover{border-color:var(–accent);color:var(–accent);background:var(–accent-soft)}
+
+.meta-item{background:var(–surface);border-radius:14px;padding:14px;border:1px solid var(–border);margin-bottom:8px;transition:all 0.2s}
+.mi-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.mi-name{font-size:13px;font-weight:700}
+.mi-status{font-size:10px;padding:3px 8px;border-radius:20px;font-weight:700}
+.mi-status.ok{background:var(–green-soft);color:var(–green)}.mi-status.warn{background:var(–orange-soft);color:var(–orange)}.mi-status.fail{background:var(–red-soft);color:var(–red)}
+.mi-vals{font-size:11px;color:var(–muted);margin-bottom:6px;font-weight:500}
+.mi-bar-track{height:4px;background:var(–surface2);border-radius:2px;overflow:hidden}
+.mi-bar-fill{height:100%;border-radius:2px;transition:width 0.5s}
+.mi-del{background:none;border:none;cursor:pointer;color:var(–muted2);padding:2px;transition:color 0.2s;font-family:inherit}
+.mi-del:hover{color:var(–red)}
+
+.meta-form-inline{background:var(–surface2);border:1.5px dashed var(–border2);border-radius:14px;padding:14px;margin-top:8px;display:none}
+.meta-form-inline.show{display:block;animation:fadeUp 0.2s ease}
+.mf-grid{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;align-items:end}
+.mf-grid .fg label{font-size:10px;font-weight:700;color:var(–muted);margin-bottom:3px;display:block;text-transform:uppercase;letter-spacing:0.5px}
+.mf-grid .fg input,.mf-grid .fg select{padding:8px 10px;border:1.5px solid var(–border);border-radius:8px;font-family:inherit;font-size:12px;background:var(–surface);color:var(–text);outline:none;width:100%}
+.mf-grid .fg input:focus{border-color:var(–accent)}
+.btn-meta-save{padding:8px 12px;background:var(–accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:11px;font-family:inherit;white-space:nowrap;transition:all 0.2s}
+.btn-meta-save:hover{opacity:0.9}
+
+/* ─── LANÇAMENTOS ─── */
+.tipo-select{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+.tb{border:1.5px solid var(–border);border-radius:12px;padding:10px 4px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(–surface)}
+.tb:hover{border-color:var(–accent);transform:translateY(-1px)}
+.tb:active{transform:scale(0.96)}
+.tb.sel-gasto{border-color:var(–red);background:var(–red-soft)}
+.tb.sel-recebimento{border-color:var(–green);background:var(–green-soft)}
+.tb.sel-divida{border-color:var(–orange);background:var(–orange-soft)}
+.tb.sel-investimento{border-color:var(–accent);background:var(–accent-soft)}
+.tb .ti{display:flex;justify-content:center;margin-bottom:4px}.tb .ti svg{width:18px;height:18px;stroke:var(–muted);transition:stroke 0.2s}
+.tb.sel-gasto .ti svg{stroke:var(–red)}.tb.sel-recebimento .ti svg{stroke:var(–green)}
+.tb.sel-divida .ti svg{stroke:var(–orange)}.tb.sel-investimento .ti svg{stroke:var(–accent)}
+.tb .tn{font-size:10px;font-weight:700;color:var(–muted)}
+
+.recorr-select{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px}
+.rb{border:1.5px solid var(–border);border-radius:12px;padding:11px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(–surface);font-size:12px;font-weight:600;color:var(–muted);display:flex;align-items:center;justify-content:center;gap:7px}
+.rb svg{width:14px;height:14px;stroke:currentColor;transition:all 0.2s}
+.rb:hover{border-color:var(–accent)}.rb.sel{border-color:var(–accent);background:var(–accent-soft);color:var(–accent)}
+
+.form-card{background:var(–surface);border-radius:20px;padding:18px;margin-bottom:12px;box-shadow:var(–shadow);border:1px solid var(–border)}
+.form-card-title{font-size:15px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;letter-spacing:-0.2px}
+.form-card-tag{font-size:11px;font-weight:500;color:var(–muted);background:var(–surface2);padding:3px 8px;border-radius:6px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.form-row.tri{grid-template-columns:1fr 1fr 1fr}
+.fg{display:flex;flex-direction:column;gap:4px}
+.fg label{font-size:10px;font-weight:700;color:var(–muted);text-transform:uppercase;letter-spacing:0.5px}
+.fg input,.fg select{padding:11px 13px;border:1.5px solid var(–border);border-radius:10px;font-family:inherit;font-size:13px;background:var(–bg);color:var(–text);outline:none;transition:all 0.2s}
+.fg input:focus,.fg select:focus{border-color:var(–accent);background:var(–surface);box-shadow:0 0 0 3px var(–accent-soft)}
+.parc-toggle{display:flex;align-items:center;gap:9px;padding:11px 13px;background:var(–surface2);border:1.5px solid var(–border);border-radius:10px;cursor:pointer;transition:all 0.2s;margin-bottom:10px;user-select:none}
+.parc-toggle:hover{border-color:var(–accent)}.parc-toggle input{accent-color:var(–accent);width:14px;height:14px}
+.parc-toggle-lbl{font-size:12px;color:var(–muted);flex:1;font-weight:500}.parc-toggle-lbl strong{color:var(–text)}
+.parc-fields{display:none}.parc-fields.show{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px;animation:fadeUp 0.2s ease}
+.btn-save{width:100%;padding:13px;background:var(–accent);color:#fff;border:none;border-radius:12px;cursor:pointer;font-family:inherit;font-weight:700;font-size:14px;transition:all 0.22s;position:relative;overflow:hidden}
+.btn-save:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 6px 18px var(–accent-glow)}
+.btn-save:active{transform:translateY(0);opacity:1}
+
+/* FILTER */
+.filter-row{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+.filter-row::-webkit-scrollbar{display:none}
+.fb{padding:6px 14px;border-radius:20px;border:1.5px solid var(–border);background:var(–surface);cursor:pointer;font-size:12px;font-family:inherit;font-weight:600;transition:all 0.2s;color:var(–muted);white-space:nowrap;display:flex;align-items:center;gap:5px}
+.fb svg{width:13px;height:13px;stroke:currentColor}
+.fb.active,.fb:hover{border-color:var(–accent);background:var(–accent-soft);color:var(–accent)}
+
+/* LISTA DE ITENS */
+.lista-group-header{display:flex;justify-content:space-between;align-items:center;padding:6px 2px;margin:10px 0 5px}
+.lgh-left{display:flex;align-items:center;gap:6px}
+.lgh-icon{width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.lgh-icon svg{width:12px;height:12px}
+.lgh-label{font-size:11px;font-weight:700;color:var(–muted);text-transform:uppercase;letter-spacing:0.5px}
+.lgh-total{font-size:14px;font-weight:800}
+.gastos-lista{display:flex;flex-direction:column;gap:6px}
+
+/* SWIPE ITEM */
+.gi-wrapper{position:relative;border-radius:14px;overflow:hidden}
+.gi-actions{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:stretch;border-radius:0 14px 14px 0;overflow:hidden;opacity:0;transition:opacity 0.2s}
+.gi-action-btn{display:flex;align-items:center;justify-content:center;width:60px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;transition:all 0.2s;flex-direction:column;gap:3px}
+.gi-action-btn svg{width:18px;height:18px;stroke:#fff;stroke-width:2}
+.gi-action-btn span{font-size:10px;font-weight:700;color:#fff}
+.gi-action-edit{background:var(–accent)}
+.gi-action-edit:hover{background:#6558e8}
+.gi-action-delete{background:var(–red)}
+.gi-action-delete:hover{background:#dc2626}
+.gi{background:var(–surface);border:1px solid var(–border);border-radius:14px;padding:13px;display:flex;align-items:center;gap:11px;transition:transform 0.25s cubic-bezier(0.4,0,0.2,1),box-shadow 0.2s;cursor:grab;user-select:none;touch-action:pan-y;will-change:transform;position:relative;z-index:1}
+.gi.swiping{cursor:grabbing}
+.gi.swiped{transform:translateX(-120px);box-shadow:none}
+.gi-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.gi-icon svg{width:17px;height:17px}
+.gi-body{flex:1;min-width:0}
+.gi-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px}
+.gi-meta{font-size:11px;color:var(–muted);display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-weight:500}
+.gi-badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:2px 7px;border-radius:20px;border:1.5px solid;font-weight:600}
+.gi-right{text-align:right;flex-shrink:0}
+.gi-val{font-size:15px;font-weight:800;letter-spacing:-0.3px}
+.gi-parc{font-size:10px;color:var(–muted);margin-top:1px;font-weight:500}
+.pp-bar{height:3px;background:var(–surface2);border-radius:2px;margin-top:5px;overflow:hidden}
+.pp-fill{height:100%;border-radius:2px;background:var(–orange)}
+.expired-tag{font-size:10px;background:var(–green-soft);color:var(–green);border:1.5px solid var(–green);padding:2px 7px;border-radius:20px;font-weight:600}
+
+/* SWIPE HINT */
+.swipe-hint{font-size:11px;color:var(–muted2);text-align:center;padding:8px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:5px}
+.swipe-hint svg{width:13px;height:13px;stroke:var(–muted2)}
+
+/* ─── MODAL EDITAR ─── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:800;opacity:0;pointer-events:none;transition:opacity 0.28s;backdrop-filter:blur(3px)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{position:fixed;bottom:0;left:0;right:0;background:var(–surface);border-radius:24px 24px 0 0;z-index:801;transform:translateY(100%);transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);max-height:90vh;overflow-y:auto;box-shadow:0 -4px 40px rgba(0,0,0,0.12)}
+.modal.open{transform:translateY(0);animation:popIn 0.32s ease}
+.modal-handle{width:36px;height:4px;background:var(–border2);border-radius:2px;margin:12px auto 0}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(–border)}
+.modal-title{font-size:16px;font-weight:800;letter-spacing:-0.3px}
+.btn-modal-close{background:var(–surface2);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;color:var(–muted)}
+.btn-modal-close svg{width:14px;height:14px;stroke:currentColor}
+.btn-modal-close:hover{background:var(–red-soft);color:var(–red)}
+.modal-body{padding:20px}
+
+/* ─── ANÁLISE ─── */
+.analise-card{background:var(–surface);border:1px solid var(–border);border-radius:20px;padding:18px;margin-bottom:12px;box-shadow:var(–shadow)}
+.ac-title{font-size:15px;font-weight:800;margin-bottom:13px;letter-spacing:-0.2px;display:flex;align-items:center;gap:8px}
+.ac-title svg{width:16px;height:16px;stroke:var(–accent)}
+.perfil-box{background:var(–surface2);border-radius:12px;padding:13px;font-size:13px;line-height:1.8;color:var(–muted);margin-bottom:13px;font-weight:500}
+.insight{display:flex;gap:11px;padding:12px;border-radius:12px;border:1.5px solid;margin-bottom:8px}
+.insight.ok{background:var(–green-soft);border-color:rgba(34,197,94,0.2)}
+.insight.warn{background:var(–orange-soft);border-color:rgba(249,115,22,0.2)}
+.insight.crit{background:var(–red-soft);border-color:rgba(239,68,68,0.2)}
+.insight.dica{background:var(–accent-soft);border-color:rgba(124,111,247,0.2)}
+.in-icon{width:20px;height:20px;flex-shrink:0;margin-top:1px}
+.in-icon svg{width:16px;height:16px}
+.in-title{font-size:12px;font-weight:700;margin-bottom:3px}
+.in-desc{font-size:12px;color:var(–muted);line-height:1.6;font-weight:500}
+
+.chart-section{background:var(–surface);border:1px solid var(–border);border-radius:20px;padding:18px;margin-bottom:12px;box-shadow:var(–shadow);position:relative}
+.chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.chart-title{font-size:15px;font-weight:800;letter-spacing:-0.2px;display:flex;align-items:center;gap:7px}
+.chart-title svg{width:16px;height:16px;stroke:var(–accent)}
+.chart-legend{display:flex;gap:10px;flex-wrap:wrap}
+.cl-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(–muted);font-weight:500}
+.cl-dot{width:8px;height:8px;border-radius:50%}
 .chart-wrap{position:relative;height:200px}
-.chart-months-summary{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:6px;margin-top:11px}
-.cms-item{background:var(--tag-bg);border:1.5px solid var(--border);border-radius:8px;padding:8px;text-align:center}
-.cms-month{font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
-.cms-val{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:700}.cms-val.pos{color:var(--accent3)}.cms-val.neg{color:var(--accent)}
+.chart-months-summary{display:grid;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:6px;margin-top:13px}
+.cms-item{background:var(–surface2);border-radius:10px;padding:9px;text-align:center}
+.cms-month{font-size:10px;color:var(–muted);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px}
+.cms-val{font-size:12px;font-weight:800}.cms-val.pos{color:var(–green)}.cms-val.neg{color:var(–red)}
+.lock-overlay{position:absolute;inset:0;background:rgba(247,247,248,0.9);border-radius:inherit;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(3px)}
+.lock-icon{width:40px;height:40px;border-radius:14px;background:var(–accent-soft);display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.lock-icon svg{width:20px;height:20px;stroke:var(–accent)}
+.lock-text{font-size:13px;font-weight:700;margin-bottom:11px;text-align:center;padding:0 20px}
+.btn-unlock{padding:9px 18px;background:var(–accent);color:#fff;border:none;border-radius:10px;cursor:pointer;font-family:inherit;font-weight:700;font-size:12px;transition:all 0.2s}
+.btn-unlock:hover{opacity:0.9}
 
-/* ANÁLISE */
-.analise-card{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;padding:15px;margin-bottom:11px}
-.ac-title{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:700;margin-bottom:11px}
-.insight{display:flex;gap:9px;padding:10px 11px;border-radius:9px;border:1.5px solid;margin-bottom:6px}
-.insight:last-child{margin-bottom:0}
-.insight.ok{background:#f4fbf7;border-color:#a8d5b8}.insight.warn{background:#fffbf5;border-color:#f0d5a8}.insight.crit{background:#fff5f3;border-color:#f0b8a8}.insight.dica{background:#f0f4ff;border-color:#a8bde8}
-.in-icon{font-size:15px;flex-shrink:0}.in-title{font-size:11px;font-weight:700;margin-bottom:2px}.in-desc{font-size:11px;color:var(--muted);line-height:1.5}
-
-/* QUINZENA */
-.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:11px}
-.qcard{background:var(--tag-bg);border:1.5px solid var(--border);border-radius:10px;padding:11px}
-.qcard-title{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.qcard-item{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
-.qcard-item-name{color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:110px}
-.qcard-item-val{font-weight:600;color:var(--accent);flex-shrink:0}
-.qcard-total{border-top:1px solid var(--border);margin-top:6px;padding-top:6px;display:flex;justify-content:space-between;font-size:11px;font-weight:700}
-.parc-card{border:1.5px solid var(--border);border-radius:10px;padding:11px;margin-bottom:8px;background:var(--surface)}
-.parc-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-.parc-card-name{font-size:12px;font-weight:600}.parc-card-val{font-size:11px;color:var(--warn);font-weight:600}
-.parc-card-meta{font-size:10px;color:var(--muted);margin-bottom:5px}
-
-/* CHAT */
-.chat-wrap{background:var(--surface);border:1.5px solid var(--border);border-radius:11px;overflow:hidden;display:flex;flex-direction:column;height:calc(100vh - 320px);min-height:400px}
-.chat-header{padding:13px 15px;border-bottom:1.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--surface)}
-.chat-header-left{display:flex;align-items:center;gap:9px}
-.chat-ai-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--warn));display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff}
-.chat-ai-name{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:700}
-.chat-ai-sub{font-size:10px;color:var(--muted)}
-#chat-counter{font-size:10px;color:var(--muted);background:var(--tag-bg);padding:3px 8px;border-radius:20px}
-.chat-list{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
-.chat-msg{display:flex;max-width:85%}
+/* ─── CHAT ─── */
+.chat-wrap{background:var(–surface);border:1px solid var(–border);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;height:calc(100vh - 210px);min-height:400px;box-shadow:var(–shadow)}
+.chat-header{padding:14px 18px;border-bottom:1px solid var(–border);display:flex;align-items:center;justify-content:space-between}
+.chat-header-left{display:flex;align-items:center;gap:10px}
+.chat-ai-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(–accent),#a855f7);display:flex;align-items:center;justify-content:center}
+.chat-ai-avatar svg{width:20px;height:20px;stroke:#fff;stroke-width:1.8}
+.chat-ai-name{font-size:14px;font-weight:800;letter-spacing:-0.2px}
+.chat-ai-sub{font-size:11px;color:var(–muted);font-weight:500}
+#chat-counter{font-size:11px;color:var(–muted);background:var(–surface2);padding:4px 10px;border-radius:20px;font-weight:700}
+.chat-list{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth}
+.chat-msg{display:flex;max-width:88%}
 .chat-user{align-self:flex-end;flex-direction:row-reverse}
 .chat-ai{align-self:flex-start}
-.chat-bubble{padding:10px 13px;border-radius:14px;font-size:12px;line-height:1.6;max-width:100%}
-.chat-user .chat-bubble{background:var(--accent);color:#fff;border-radius:14px 14px 4px 14px}
-.chat-ai .chat-bubble{background:var(--tag-bg);border:1.5px solid var(--border);color:var(--text);border-radius:14px 14px 14px 4px}
-.chat-bubble.loading{display:flex;align-items:center;gap:4px;padding:10px 16px}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:bounce 1.2s ease infinite}
+.chat-bubble{padding:11px 15px;border-radius:16px;font-size:13px;line-height:1.65;max-width:100%}
+.chat-user .chat-bubble{background:var(–accent);color:#fff;border-radius:16px 16px 4px 16px;font-weight:500}
+.chat-ai .chat-bubble{background:var(–surface2);color:var(–text);border-radius:16px 16px 16px 4px;border:1px solid var(–border)}
+.chat-bubble.loading{display:flex;align-items:center;gap:5px;padding:13px 18px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(–muted2);animation:bounce 1.2s ease infinite}
 .dot:nth-child(2){animation-delay:0.2s}.dot:nth-child(3){animation-delay:0.4s}
-.chat-input-wrap{padding:11px 13px;border-top:1.5px solid var(--border);display:flex;gap:8px;align-items:flex-end;background:var(--surface)}
-#chat-input{flex:1;padding:9px 12px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inconsolata',monospace;font-size:12px;background:var(--bg);color:var(--text);outline:none;resize:none;min-height:38px;max-height:100px;transition:border-color 0.2s;line-height:1.4}
-#chat-input:focus{border-color:var(--accent);background:var(--surface)}
-#chat-send{padding:9px 16px;background:var(--accent);color:#fff;border:none;border-radius:9px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:12px;white-space:nowrap;transition:opacity 0.2s;flex-shrink:0}
-#chat-send:hover{opacity:0.9}#chat-send:disabled{opacity:0.4;cursor:not-allowed}
-.chat-lock{text-align:center;padding:20px;font-size:12px;color:var(--muted)}
+.chat-input-wrap{padding:12px 14px;border-top:1px solid var(–border);display:flex;gap:9px;align-items:flex-end}
+#chat-input{flex:1;padding:10px 14px;border:1.5px solid var(–border);border-radius:12px;font-family:inherit;font-size:13px;background:var(–bg);color:var(–text);outline:none;resize:none;min-height:40px;max-height:100px;transition:all 0.2s;line-height:1.5}
+#chat-input:focus{border-color:var(–accent);background:var(–surface);box-shadow:0 0 0 3px var(–accent-soft)}
+#chat-send{padding:10px 16px;background:var(–accent);color:#fff;border:none;border-radius:11px;cursor:pointer;font-family:inherit;font-weight:700;font-size:13px;transition:all 0.2s;display:flex;align-items:center;gap:6px}
+#chat-send svg{width:15px;height:15px;stroke:#fff;stroke-width:2}
+#chat-send:hover{opacity:0.9;transform:translateY(-1px)}
+#chat-send:disabled{opacity:0.4;cursor:not-allowed;transform:none}
 
-/* LOCK */
-.lock-overlay{position:absolute;inset:0;background:rgba(245,242,236,0.93);border-radius:inherit;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(2px)}
-.lock-icon{font-size:26px;margin-bottom:7px}.lock-text{font-size:12px;font-weight:600;margin-bottom:9px;text-align:center;padding:0 16px}
-.btn-unlock{padding:8px 16px;background:var(--accent2);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:11px}
+/* ─── DRAWER ─── */
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.22);z-index:900;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(2px)}
+.drawer-overlay.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(360px,100vw);background:var(–surface);z-index:901;transform:translateX(100%);transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;box-shadow:-4px 0 40px rgba(0,0,0,0.10)}
+.drawer.open{transform:translateX(0)}
+.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(–border);position:sticky;top:0;background:var(–surface);z-index:1}
+.drawer-title{font-size:16px;font-weight:800;letter-spacing:-0.3px}
+.btn-drawer-close{background:var(–surface2);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;color:var(–muted)}
+.btn-drawer-close svg{width:14px;height:14px;stroke:currentColor}
+.btn-drawer-close:hover{background:var(–red-soft);color:var(–red)}
+.drawer-body{padding:18px}
+.drawer-nav{display:flex;flex-direction:column;gap:3px;margin-bottom:18px}
+.drawer-nav-item{display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:12px;cursor:pointer;transition:all 0.2s;font-size:13px;font-weight:600;border:none;background:none;width:100%;text-align:left;color:var(–text)}
+.drawer-nav-item svg{width:16px;height:16px;stroke:currentColor;flex-shrink:0}
+.drawer-nav-item:hover{background:var(–surface2)}
+.drawer-nav-item.active{background:var(–accent-soft);color:var(–accent)}
+.drawer-nav-item .dna{margin-left:auto;font-size:10px;color:var(–muted);font-weight:700;background:var(–surface2);padding:2px 7px;border-radius:6px}
+.drawer-section{display:none;animation:fadeUp 0.22s ease}.drawer-section.active{display:block}
+.ds-title{font-size:15px;font-weight:800;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(–border);letter-spacing:-0.2px}
+.pf-field{margin-bottom:10px}.pf-field label{display:block;font-size:10px;font-weight:700;color:var(–muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px}
+.pf-field input,.pf-field select{width:100%;padding:10px 13px;border:1.5px solid var(–border);border-radius:10px;font-family:inherit;font-size:13px;background:var(–bg);color:var(–text);outline:none;transition:all 0.2s}
+.pf-field input:focus,.pf-field select:focus{border-color:var(–accent);background:var(–surface);box-shadow:0 0 0 3px var(–accent-soft)}
+.pf-grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.btn-save-profile{width:100%;padding:12px;background:var(–accent);color:#fff;border:none;border-radius:11px;cursor:pointer;font-family:inherit;font-weight:700;font-size:13px;margin-top:6px;transition:all 0.2s}
+.btn-save-profile:hover{opacity:0.9}
+
+.plans-grid{display:flex;flex-direction:column;gap:12px}
+.plan-card{border:1.5px solid var(–border);border-radius:16px;padding:18px;position:relative}
+.plan-card.featured{border-color:var(–accent);background:var(–accent-soft)}
+.plan-badge-tag{position:absolute;top:12px;right:12px;background:var(–accent);color:#fff;font-size:9px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.5px}
+.plan-name{font-size:18px;font-weight:800;margin-bottom:3px;letter-spacing:-0.5px}
+.plan-price{font-size:26px;font-weight:800;line-height:1;margin-bottom:4px;letter-spacing:-1px}
+.plan-price span{font-size:13px;font-weight:400;color:var(–muted)}
+.plan-desc{font-size:12px;color:var(–muted);margin-bottom:13px;line-height:1.6;font-weight:500}
+.plan-features{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.pf-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500}
+.pf-item.locked{color:var(–muted2);text-decoration:line-through;opacity:0.6}
+.btn-plan{width:100%;padding:11px;border-radius:10px;cursor:pointer;font-family:inherit;font-weight:700;font-size:13px;transition:all 0.2s;border:1.5px solid}
+.btn-plan.free-btn{background:var(–surface2);border-color:var(–border);color:var(–text)}
+.btn-plan.pro-btn{background:var(–accent);border-color:var(–accent);color:#fff}
+.btn-plan.pro-btn:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 4px 14px var(–accent-glow)}
+.trial-info-sm{text-align:center;font-size:11px;color:var(–muted);margin-top:7px;font-weight:500}
+.support-item{display:flex;align-items:center;gap:12px;padding:13px;border:1.5px solid var(–border);border-radius:12px;margin-bottom:8px;cursor:pointer;transition:all 0.2s;text-decoration:none;color:var(–text)}
+.support-item svg{width:18px;height:18px;stroke:var(–muted);flex-shrink:0;transition:stroke 0.2s}
+.support-item:hover{border-color:var(–accent);background:var(–accent-soft);transform:translateY(-1px)}
+.support-item:hover svg{stroke:var(–accent)}
+.support-title{font-size:13px;font-weight:700}.support-sub{font-size:11px;color:var(–muted);font-weight:500}
+.faq-item{border:1px solid var(–border);border-radius:11px;margin-bottom:7px;overflow:hidden}
+.faq-q{padding:12px 14px;cursor:pointer;font-size:12px;font-weight:700;display:flex;justify-content:space-between;transition:background 0.2s}
+.faq-q:hover{background:var(–surface2)}
+.faq-a{display:none;padding:0 14px 12px;font-size:12px;color:var(–muted);line-height:1.7;font-weight:500}.faq-a.open{display:block;animation:fadeUp 0.2s ease}
+.sobre-logo{font-size:32px;font-weight:800;text-align:center;margin-bottom:3px;letter-spacing:-1.5px}.sobre-logo span{color:var(–accent)}
+.sobre-version{font-size:11px;color:var(–muted);letter-spacing:2px;text-align:center;text-transform:uppercase;margin-bottom:14px;font-weight:600}
+.sobre-text{font-size:12px;color:var(–muted);line-height:1.8;margin-bottom:13px;font-weight:500}
+.sobre-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:13px}
+.ss-item{background:var(–surface2);border-radius:12px;padding:12px;text-align:center}
+.ss-val{font-size:20px;font-weight:800;color:var(–accent)}.ss-lbl{font-size:11px;color:var(–muted);font-weight:500}
+.sobre-links{display:flex;gap:7px}
+.sobre-link{flex:1;padding:10px;border:1.5px solid var(–border);border-radius:10px;text-align:center;font-size:11px;color:var(–muted);cursor:pointer;transition:all 0.2s;background:none;font-family:inherit;font-weight:600}
+.sobre-link:hover{border-color:var(–accent);color:var(–accent)}
+.arquivo-item{background:var(–surface2);border:1px solid var(–border);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.btn-reativar{background:none;border:1.5px solid var(–border);border-radius:7px;padding:4px 10px;font-size:11px;cursor:pointer;transition:all 0.2s;color:var(–muted);font-family:inherit;font-weight:600;white-space:nowrap}
+.btn-reativar:hover{border-color:var(–green);color:var(–green)}
 
 /* EMPTY */
-.empty-state{text-align:center;padding:24px 14px;color:var(--muted)}.empty-state .ei{font-size:28px;margin-bottom:7px}.empty-state p{font-size:12px;line-height:1.6}
+.empty-state{text-align:center;padding:32px 20px;color:var(–muted)}
+.empty-state .ei{width:48px;height:48px;background:var(–surface2);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.empty-state .ei svg{width:22px;height:22px;stroke:var(–muted2)}
+.empty-state p{font-size:13px;line-height:1.7;font-weight:500}
 
 /* TOAST */
-.toast{position:fixed;bottom:18px;right:18px;background:var(--text);color:var(--bg);padding:9px 15px;border-radius:9px;font-size:12px;z-index:9999;transform:translateY(60px);opacity:0;transition:all 0.3s;pointer-events:none;max-width:240px}
-.toast.show{transform:translateY(0);opacity:1}.toast.error{background:var(--accent)}
+.toast{position:fixed;bottom:110px;left:50%;transform:translateX(-50%) translateY(20px);background:var(–text);color:var(–surface);padding:11px 20px;border-radius:20px;font-size:13px;z-index:9999;opacity:0;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);pointer-events:none;white-space:nowrap;font-weight:600;box-shadow:var(–shadow-lg);display:flex;align-items:center;gap:7px}
+.toast svg{width:14px;height:14px;stroke:currentColor}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.toast.error{background:var(–red)}
+.toast.success{background:#16a34a}
 
 @media(max-width:600px){
-  .top-cards{grid-template-columns:1fr 1fr}.form-row,.form-row.tri{grid-template-columns:1fr}.pg{grid-template-columns:1fr}
-  .tipo-select{grid-template-columns:repeat(2,1fr)}.qgrid{grid-template-columns:1fr}.parc-fields.show{grid-template-columns:1fr 1fr}
-  .mf-grid{grid-template-columns:1fr 1fr}.ob-grid2,.pf-grid2{grid-template-columns:1fr}.freq-grid{grid-template-columns:1fr 1fr}
-  .drawer{width:100vw}.header-right{gap:4px}.chat-wrap{height:calc(100vh - 280px)}
+.mini-cards{grid-template-columns:1fr 1fr}
+.form-row,.form-row.tri{grid-template-columns:1fr}
+.tipo-select{grid-template-columns:repeat(2,1fr)}
+.parc-fields.show{grid-template-columns:1fr 1fr}
+.mf-grid{grid-template-columns:1fr 1fr}
+.ob-grid2,.pf-grid2{grid-template-columns:1fr}
+.drawer{width:100vw}
 }
 </style>
-</head>
-<body>
+
+<!-- ═══════════════════════════════════════ AUTH ═══════════════════════════════════════ -->
 
 <div id="loading-overlay"><div class="loading-spinner"></div><div id="loading-msg">Carregando...</div></div>
 
-<!-- AUTH -->
 <div id="auth-screen">
  <div class="auth-wrap">
   <div class="auth-logo">Fina<span>S</span></div>
@@ -1252,47 +1377,51 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
     <div class="auth-tab auth-tab-active" id="tab-login" onclick="showAuthTab('login')">Entrar</div>
     <div class="auth-tab" id="tab-register" onclick="showAuthTab('register')">Criar conta</div>
    </div>
+   <!-- LOGIN -->
    <div id="form-login">
-    <button class="btn-google" onclick="loginGoogle()"><span style="font-size:16px">G</span> Continuar com Google</button>
+    <button class="btn-google" onclick="loginGoogle()">
+     <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+     Continuar com Google
+    </button>
     <div class="auth-divider"><span>ou use seu e-mail</span></div>
     <div class="auth-field"><label>E-mail</label><input type="email" id="login-email" placeholder="seu@email.com" onkeydown="if(event.key==='Enter')login()"></div>
     <div class="auth-field"><label>Senha</label><input type="password" id="login-senha" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()"></div>
-    <button class="btn-auth" onclick="login()">Entrar →</button>
+    <button class="btn-auth" onclick="login()">Entrar</button>
     <button class="auth-link" onclick="resetPassword()">Esqueci minha senha</button>
    </div>
+   <!-- REGISTER -->
    <div id="form-register" style="display:none">
-    <button class="btn-google" onclick="loginGoogle()"><span style="font-size:16px">G</span> Criar conta com Google</button>
+    <button class="btn-google" onclick="loginGoogle()">
+     <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+     Criar conta com Google
+    </button>
     <div class="auth-divider"><span>ou use seu e-mail</span></div>
     <div class="auth-field"><label>Nome completo</label><input type="text" id="auth-nome" placeholder="Ex: Ana Lima"></div>
     <div class="auth-field"><label>E-mail</label><input type="email" id="auth-email" placeholder="seu@email.com"></div>
     <div class="auth-field"><label>Senha</label><input type="password" id="auth-senha" placeholder="Mínimo 6 caracteres"></div>
     <div class="auth-field"><label>Confirmar senha</label><input type="password" id="auth-confirma" placeholder="Repita a senha" onkeydown="if(event.key==='Enter')register()"></div>
-    <button class="btn-auth" onclick="register()">Criar conta grátis →</button>
+    <button class="btn-auth" onclick="register()">Criar conta grátis</button>
     <div class="auth-benefits">
-     <div class="ab-item"><span>🎁</span><span>14 dias completos grátis</span></div>
-     <div class="ab-item"><span>☁️</span><span>Dados na nuvem — acesse de qualquer lugar</span></div>
-     <div class="ab-item"><span>🤖</span><span>Assistente IA para dúvidas financeiras</span></div>
+     <div class="ab-item"><span>🎁</span> 14 dias completos grátis</div>
+     <div class="ab-item"><span>☁️</span> Dados na nuvem — acesse de qualquer lugar</div>
+     <div class="ab-item"><span>🤖</span> Assistente IA para dúvidas financeiras</div>
     </div>
    </div>
   </div>
  </div>
 </div>
 
-<!-- ONBOARDING -->
+<!-- ═══════════════════════════════════════ ONBOARDING ═══════════════════════════════════════ -->
+
 <div id="onboard-screen">
  <div class="ob-wrap">
-  <div class="ob-header"><div class="ob-logo">Fina<span>S</span></div><div style="font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:3px">Configurando seu perfil</div></div>
+  <div class="ob-header"><div class="ob-logo">Fina<span>S</span></div><p style="font-size:12px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;font-weight:600">Configure seu perfil</p></div>
   <div class="ob-card">
    <div class="ob-step active" id="ob-s1">
     <div class="step-indicator"><div class="si-dot active"></div><div class="si-dot"></div><div class="si-dot"></div><div class="si-dot"></div></div>
-    <div class="ob-q">Qual é o seu perfil?</div><div class="ob-hint">Personaliza seus insights e dicas.</div>
-    <div class="pg">
-     <div class="pc" onclick="selPersona('estagiario')" id="p-estagiario"><div class="pc-icon">🎓</div><div class="pc-name">Estagiário(a)</div><div class="pc-desc">Bolsa, começando agora.</div></div>
-     <div class="pc" onclick="selPersona('clt')" id="p-clt"><div class="pc-icon">💼</div><div class="pc-name">CLT</div><div class="pc-desc">Registrado, renda estável.</div></div>
-     <div class="pc" onclick="selPersona('autonomo')" id="p-autonomo"><div class="pc-icon">⚡</div><div class="pc-name">Autônomo</div><div class="pc-desc">Renda variável.</div></div>
-     <div class="pc" onclick="selPersona('semrenda')" id="p-semrenda"><div class="pc-icon">🌱</div><div class="pc-name">Sem renda fixa</div><div class="pc-desc">Bicos ou buscando emprego.</div></div>
-    </div>
-    <button class="btn-ob-next" onclick="obNext(2)">Continuar →</button>
+    <div class="ob-q">Qual é o seu perfil?</div><div class="ob-hint">Personaliza seus insights e dicas financeiras.</div>
+    <div class="pg"><div class="pc" onclick="selPersona('estagiario')" id="p-estagiario"><div class="pc-icon">🎓</div><div class="pc-name">Estagiário(a)</div><div class="pc-desc">Bolsa, começando agora</div></div><div class="pc" onclick="selPersona('clt')" id="p-clt"><div class="pc-icon">💼</div><div class="pc-name">CLT</div><div class="pc-desc">Registrado, renda estável</div></div><div class="pc" onclick="selPersona('autonomo')" id="p-autonomo"><div class="pc-icon">⚡</div><div class="pc-name">Autônomo</div><div class="pc-desc">Renda variável</div></div><div class="pc" onclick="selPersona('semrenda')" id="p-semrenda"><div class="pc-icon">🌱</div><div class="pc-name">Sem renda fixa</div><div class="pc-desc">Bicos ou buscando emprego</div></div></div>
+    <button class="btn-ob-next" onclick="obNext(2)">Continuar</button>
    </div>
    <div class="ob-step" id="ob-s2">
     <div class="step-indicator"><div class="si-dot done"></div><div class="si-dot active"></div><div class="si-dot"></div><div class="si-dot"></div></div>
@@ -1300,62 +1429,50 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
     <div class="ob-grid2"><div class="ob-field"><label>Nome</label><input type="text" id="ob-nome" placeholder="Ex: Ana"></div><div class="ob-field"><label>Idade</label><input type="number" id="ob-idade" placeholder="22" min="14" max="80"></div></div>
     <div class="ob-field"><label>Renda mensal líquida (R$)</label><input type="number" id="ob-renda" placeholder="Ex: 1500" step="0.01"></div>
     <div class="ob-field"><label>Como você recebe?</label></div>
-    <div class="freq-grid">
-     <div class="fq-btn" onclick="selFreq('mensal')" id="fq-mensal"><div class="fq-icon">📅</div><div class="fq-name">Mensal</div><div class="fq-desc">1x por mês</div></div>
-     <div class="fq-btn" onclick="selFreq('quinzenal')" id="fq-quinzenal"><div class="fq-icon">🗓</div><div class="fq-name">Quinzenal</div><div class="fq-desc">2x por mês</div></div>
-     <div class="fq-btn" onclick="selFreq('semanal')" id="fq-semanal"><div class="fq-icon">📆</div><div class="fq-name">Semanal</div><div class="fq-desc">toda semana</div></div>
-     <div class="fq-btn" onclick="selFreq('variavel')" id="fq-variavel"><div class="fq-icon">🎲</div><div class="fq-name">Variável</div><div class="fq-desc">irregular</div></div>
-    </div>
-    <button class="btn-ob-next" onclick="obNext(3)">Continuar →</button>
-    <button class="btn-ob-back" onclick="obNext(1)">← Voltar</button>
+    <div class="freq-grid"><div class="fq-btn" onclick="selFreq('mensal')" id="fq-mensal"><div class="fq-icon">📅</div><div class="fq-name">Mensal</div><div class="fq-desc">1x por mês</div></div><div class="fq-btn" onclick="selFreq('quinzenal')" id="fq-quinzenal"><div class="fq-icon">🗓</div><div class="fq-name">Quinzenal</div><div class="fq-desc">2x por mês</div></div><div class="fq-btn" onclick="selFreq('semanal')" id="fq-semanal"><div class="fq-icon">📆</div><div class="fq-name">Semanal</div><div class="fq-desc">toda semana</div></div><div class="fq-btn" onclick="selFreq('variavel')" id="fq-variavel"><div class="fq-icon">🎲</div><div class="fq-name">Variável</div><div class="fq-desc">irregular</div></div></div>
+    <button class="btn-ob-next" onclick="obNext(3)">Continuar</button>
+    <button class="btn-ob-back" onclick="obNext(1)">Voltar</button>
    </div>
    <div class="ob-step" id="ob-s3">
     <div class="step-indicator"><div class="si-dot done"></div><div class="si-dot done"></div><div class="si-dot active"></div><div class="si-dot"></div></div>
     <div class="ob-q">Qual é o seu objetivo?</div><div class="ob-hint">Define como calculamos seus dados.</div>
-    <div class="obj-list">
-     <div class="obj-item" onclick="selObj('sobrar')" id="obj-sobrar"><div class="obj-icon">💸</div><div><div class="obj-name">Sobrar dinheiro</div><div class="obj-sub">Quero um valor X livre todo mês</div></div></div>
-     <div class="obj-item" onclick="selObj('quitar')" id="obj-quitar"><div class="obj-icon">🔴</div><div><div class="obj-name">Quitar dívidas</div><div class="obj-sub">Prioridade é zerar o que devo</div></div></div>
-     <div class="obj-item" onclick="selObj('poupar')" id="obj-poupar"><div class="obj-icon">🏦</div><div><div class="obj-name">Começar a poupar</div><div class="obj-sub">Criar reserva de emergência</div></div></div>
-     <div class="obj-item" onclick="selObj('controlar')" id="obj-controlar"><div class="obj-icon">📊</div><div><div class="obj-name">Controlar gastos</div><div class="obj-sub">Saber pra onde meu dinheiro vai</div></div></div>
-    </div>
-    <button class="btn-ob-next" onclick="obNext(4)">Continuar →</button>
-    <button class="btn-ob-back" onclick="obNext(2)">← Voltar</button>
+    <div class="obj-list"><div class="obj-item" onclick="selObj('sobrar')" id="obj-sobrar"><div class="obj-icon">💸</div><div><div class="obj-name">Sobrar dinheiro</div><div class="obj-sub">Quero um valor X livre todo mês</div></div></div><div class="obj-item" onclick="selObj('quitar')" id="obj-quitar"><div class="obj-icon">🔴</div><div><div class="obj-name">Quitar dívidas</div><div class="obj-sub">Prioridade é zerar o que devo</div></div></div><div class="obj-item" onclick="selObj('poupar')" id="obj-poupar"><div class="obj-icon">🏦</div><div><div class="obj-name">Começar a poupar</div><div class="obj-sub">Criar reserva de emergência</div></div></div><div class="obj-item" onclick="selObj('controlar')" id="obj-controlar"><div class="obj-icon">📊</div><div><div class="obj-name">Controlar gastos</div><div class="obj-sub">Saber pra onde meu dinheiro vai</div></div></div></div>
+    <button class="btn-ob-next" onclick="obNext(4)">Continuar</button>
+    <button class="btn-ob-back" onclick="obNext(2)">Voltar</button>
    </div>
    <div class="ob-step" id="ob-s4">
     <div class="step-indicator"><div class="si-dot done"></div><div class="si-dot done"></div><div class="si-dot done"></div><div class="si-dot active"></div></div>
-    <div class="ob-q">Defina sua meta 🎯</div><div class="ob-hint">Vira um limite ativo com alerta em tempo real.</div>
-    <div class="ob-grid2">
-     <div class="ob-field"><label>Limite de gastos/mês (R$)</label><input type="number" id="ob-meta-gasto" placeholder="Ex: 1400" step="0.01"></div>
-     <div class="ob-field"><label>Meta de economia/mês (R$)</label><input type="number" id="ob-meta-economia" placeholder="Ex: 220" step="0.01"></div>
-    </div>
-    <div class="ob-grid2">
-     <div class="ob-field"><label>Renda extra (opcional)</label><input type="number" id="ob-extra" placeholder="Ex: 200" step="0.01"></div>
-     <div class="ob-field"><label>Origem</label><input type="text" id="ob-extra-desc" placeholder="Ex: freelas"></div>
-    </div>
-    <button class="btn-ob-next" onclick="finishOnboard()">Começar meu controle →</button>
-    <button class="btn-ob-back" onclick="obNext(3)">← Voltar</button>
+    <div class="ob-q">Defina sua meta</div><div class="ob-hint">Vira um limite ativo com alerta em tempo real.</div>
+    <div class="ob-grid2"><div class="ob-field"><label>Limite de gastos/mês (R$)</label><input type="number" id="ob-meta-gasto" placeholder="Ex: 1400" step="0.01"></div><div class="ob-field"><label>Meta de economia/mês (R$)</label><input type="number" id="ob-meta-economia" placeholder="Ex: 220" step="0.01"></div></div>
+    <div class="ob-grid2"><div class="ob-field"><label>Renda extra (opcional)</label><input type="number" id="ob-extra" placeholder="Ex: 200" step="0.01"></div><div class="ob-field"><label>Origem</label><input type="text" id="ob-extra-desc" placeholder="Ex: freelas"></div></div>
+    <button class="btn-ob-next" onclick="finishOnboard()">Começar meu controle</button>
+    <button class="btn-ob-back" onclick="obNext(3)">Voltar</button>
    </div>
   </div>
  </div>
 </div>
 
-<!-- DRAWER -->
+<!-- ═══════════════════════════════════════ DRAWER ═══════════════════════════════════════ -->
+
 <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
- <div class="drawer-header"><div class="drawer-title">⚙️ Configurações</div><button class="btn-drawer-close" onclick="closeDrawer()">✕</button></div>
+ <div class="drawer-header">
+  <div class="drawer-title">Menu</div>
+  <button class="btn-drawer-close" onclick="closeDrawer()"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/></svg></button>
+ </div>
  <div class="drawer-body">
   <nav class="drawer-nav">
-   <button class="drawer-nav-item active" onclick="showSection('sec-perfil')"><span class="dni">👤</span>Meu Perfil</button>
-   <button class="drawer-nav-item" onclick="showSection('sec-planos')"><span class="dni">⭐</span>Planos<span class="dna" id="dna-plano">FREE</span></button>
-   <button class="drawer-nav-item" onclick="showSection('sec-arquivo')"><span class="dni">📦</span>Arquivo<span class="dna" id="dna-arquivo">0</span></button>
-   <button class="drawer-nav-item" onclick="showSection('sec-suporte')"><span class="dni">💬</span>Suporte</button>
-   <button class="drawer-nav-item" onclick="showSection('sec-sobre')"><span class="dni">ℹ️</span>Sobre</button>
+   <button class="drawer-nav-item active" onclick="showSection('sec-perfil')"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke-linecap="round"/></svg>Meu Perfil</button>
+   <button class="drawer-nav-item" onclick="showSection('sec-planos')"><svg viewBox="0 0 24 24" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Planos<span class="dna" id="dna-plano">FREE</span></button>
+   <button class="drawer-nav-item" onclick="showSection('sec-arquivo')"><svg viewBox="0 0 24 24" fill="none"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Arquivo<span class="dna" id="dna-arquivo">0</span></button>
+   <button class="drawer-nav-item" onclick="showSection('sec-suporte')"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Suporte</button>
+   <button class="drawer-nav-item" onclick="showSection('sec-sobre')"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Sobre</button>
   </nav>
   <div class="drawer-section active" id="sec-perfil">
-   <div class="ds-title">👤 Meu Perfil</div>
+   <div class="ds-title">Meu Perfil</div>
    <div class="pf-grid2"><div class="pf-field"><label>Nome</label><input type="text" id="pf-nome"></div><div class="pf-field"><label>Idade</label><input type="number" id="pf-idade"></div></div>
-   <div class="pf-grid2"><div class="pf-field"><label>E-mail</label><input type="email" id="pf-email" readonly style="opacity:0.6"></div><div class="pf-field"><label>Telefone</label><input type="tel" id="pf-tel" placeholder="(11) 99999-9999"></div></div>
-   <div class="pf-field"><label>Perfil</label><select id="pf-persona"><option value="estagiario">🎓 Estagiário(a)</option><option value="clt">💼 CLT</option><option value="autonomo">⚡ Autônomo</option><option value="semrenda">🌱 Sem renda fixa</option></select></div>
+   <div class="pf-grid2"><div class="pf-field"><label>E-mail</label><input type="email" id="pf-email" readonly style="opacity:0.5"></div><div class="pf-field"><label>Telefone</label><input type="tel" id="pf-tel" placeholder="(11) 99999-9999"></div></div>
+   <div class="pf-field"><label>Perfil</label><select id="pf-persona"><option value="estagiario">Estagiário(a)</option><option value="clt">CLT</option><option value="autonomo">Autônomo</option><option value="semrenda">Sem renda fixa</option></select></div>
    <div class="pf-grid2"><div class="pf-field"><label>Renda (R$)</label><input type="number" id="pf-renda" step="0.01"></div><div class="pf-field"><label>Frequência</label><select id="pf-freq"><option value="mensal">Mensal</option><option value="quinzenal">Quinzenal</option><option value="semanal">Semanal</option><option value="variavel">Variável</option></select></div></div>
    <div class="pf-grid2"><div class="pf-field"><label>Renda extra (R$)</label><input type="number" id="pf-extra" step="0.01"></div><div class="pf-field"><label>Origem extra</label><input type="text" id="pf-extra-desc"></div></div>
    <div class="pf-grid2"><div class="pf-field"><label>Limite gastos</label><input type="number" id="pf-meta-gasto" step="0.01"></div><div class="pf-field"><label>Meta economia</label><input type="number" id="pf-meta-eco" step="0.01"></div></div>
@@ -1363,153 +1480,424 @@ html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-fam
    <button class="btn-save-profile" onclick="saveProfile()">Salvar perfil</button>
   </div>
   <div class="drawer-section" id="sec-planos">
-   <div class="ds-title">⭐ Planos</div>
+   <div class="ds-title">Planos</div>
    <div class="plans-grid">
-    <div class="plan-card">
-     <div class="plan-name">Free</div><div class="plan-price">R$ 0 <span>/ sempre</span></div>
-     <div class="plan-desc">14 dias completos. Depois, funcionalidades básicas.</div>
-     <div class="plan-features"><div class="pf-item">✅ Lançamentos</div><div class="pf-item">✅ Resumo mensal</div><div class="pf-item">✅ 1 meta ativa</div><div class="pf-item">✅ Chat IA: 10 msgs/mês</div><div class="pf-item locked">🔒 Gráficos avançados</div><div class="pf-item locked">🔒 Análise completa</div><div class="pf-item locked">🔒 Chat IA ilimitado</div></div>
-     <button class="btn-plan free-btn">Plano atual</button>
-    </div>
-    <div class="plan-card featured">
-     <div class="plan-badge-tag">MELHOR</div>
-     <div class="plan-name" style="color:var(--accent2)">Pro</div><div class="plan-price" style="color:var(--accent2)">R$ 9,90 <span>/ mês</span></div>
-     <div class="plan-desc">Acesso completo. Menos de R$ 0,33/dia.</div>
-     <div class="plan-features"><div class="pf-item">✅ Tudo do Free</div><div class="pf-item">✅ Gráficos de evolução</div><div class="pf-item">✅ Análise avançada</div><div class="pf-item">✅ Metas ilimitadas</div><div class="pf-item">✅ Chat IA ilimitado 🤖</div><div class="pf-item">✅ Sugestões de investimentos</div><div class="pf-item">✅ Suporte prioritário</div></div>
-     <button class="btn-plan pro-btn" onclick="selectPlan('pro')">Assinar por R$ 9,90/mês →</button>
-     <div class="trial-info">💳 Pix, cartão ou boleto · Cancele quando quiser</div>
-    </div>
+    <div class="plan-card"><div class="plan-name">Free</div><div class="plan-price">R$ 0<span>/sempre</span></div><div class="plan-desc">14 dias completos. Depois, funcionalidades básicas.</div><div class="plan-features"><div class="pf-item">✅ Lançamentos</div><div class="pf-item">✅ Resumo mensal</div><div class="pf-item">✅ 1 meta ativa</div><div class="pf-item">✅ Chat IA: 10 msgs/mês</div><div class="pf-item locked">🔒 Gráficos avançados</div><div class="pf-item locked">🔒 Chat IA ilimitado</div></div><button class="btn-plan free-btn">Plano atual</button></div>
+    <div class="plan-card featured"><div class="plan-badge-tag">MELHOR</div><div class="plan-name" style="color:var(--accent)">Pro</div><div class="plan-price" style="color:var(--accent)">R$ 9,90<span>/mês</span></div><div class="plan-desc">Acesso completo. Menos de R$ 0,33/dia.</div><div class="plan-features"><div class="pf-item">✅ Tudo do Free</div><div class="pf-item">✅ Gráficos de evolução</div><div class="pf-item">✅ Análise avançada</div><div class="pf-item">✅ Metas ilimitadas</div><div class="pf-item">✅ Chat IA ilimitado</div><div class="pf-item">✅ Bot Telegram integrado</div></div><button class="btn-plan pro-btn" onclick="selectPlan('pro')">Assinar por R$ 9,90/mês</button><div class="trial-info-sm">Cancele quando quiser</div></div>
    </div>
   </div>
-  <div class="drawer-section" id="sec-arquivo">
-   <div class="ds-title">📦 Dívidas arquivadas</div>
-   <p style="font-size:11px;color:var(--muted);margin-bottom:12px;line-height:1.6">Dívidas com parcelas encerradas ficam aqui. Reative quando precisar.</p>
-   <div id="arquivo-list"></div>
-  </div>
+  <div class="drawer-section" id="sec-arquivo"><div class="ds-title">Dívidas arquivadas</div><p style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.7;font-weight:500">Dívidas com parcelas encerradas ficam aqui.</p><div id="arquivo-list"></div></div>
   <div class="drawer-section" id="sec-suporte">
-   <div class="ds-title">💬 Suporte</div>
-   <a class="support-item" href="https://wa.me/5511999999999" target="_blank"><span class="support-icon">💬</span><div><div class="support-title">WhatsApp</div><div class="support-sub">Resposta em até 24h</div></div><span style="margin-left:auto">→</span></a>
-   <a class="support-item" href="mailto:suporte@finas.app"><span class="support-icon">📧</span><div><div class="support-title">E-mail</div><div class="support-sub">suporte@finas.app</div></div><span style="margin-left:auto">→</span></a>
-   <div style="margin:12px 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:700">FAQ</div>
-   <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Qual a diferença entre gasto fixo e variável? <span>+</span></div><div class="faq-a">Fixo: repete todo mês com valor igual (aluguel, luz, financiamento). Variável: acontece esporadicamente ou com valor diferente todo mês (farmácia, lazer, alimentação).</div></div>
-   <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Como o chat IA funciona? <span>+</span></div><div class="faq-a">O assistente conhece seus dados financeiros (renda, gastos, perfil) e responde perguntas personalizadas. Free: 10 mensagens/mês. Pro: ilimitado.</div></div>
-   <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Meus dados são seguros? <span>+</span></div><div class="faq-a">Sim. Dados armazenados no Firebase (Google Cloud), criptografados. Cada usuário só acessa seus próprios dados.</div></div>
+   <div class="ds-title">Suporte</div>
+   <a class="support-item" href="https://wa.me/5511999999999" target="_blank"><svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><div><div class="support-title">WhatsApp</div><div class="support-sub">Resposta em até 24h</div></div><svg style="margin-left:auto;width:14px;height:14px" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6"/></svg></a>
+   <a class="support-item" href="mailto:suporte@finas.app"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><div><div class="support-title">E-mail</div><div class="support-sub">suporte@finas.app</div></div><svg style="margin-left:auto;width:14px;height:14px" viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6"/></svg></a>
+   <div style="margin:14px 0 9px;font-size:13px;font-weight:800">Perguntas frequentes</div>
+   <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Diferença entre fixo e variável? <span>+</span></div><div class="faq-a">Fixo: repete todo mês (aluguel, luz). Variável: acontece esporadicamente (farmácia, lazer).</div></div>
+   <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Como o chat IA funciona? <span>+</span></div><div class="faq-a">O assistente conhece seus dados e responde perguntas personalizadas. Free: 10 msgs/mês. Pro: ilimitado.</div></div>
+   <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Meus dados são seguros? <span>+</span></div><div class="faq-a">Sim. Firebase (Google Cloud), criptografados. Cada usuário acessa apenas seus próprios dados.</div></div>
+   <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Como usar o bot Telegram? <span>+</span></div><div class="faq-a">Disponível no plano Pro. Você conecta seu Telegram no perfil e manda mensagens como "Uber 25" ou "resumo" diretamente pelo app de mensagens.</div></div>
   </div>
   <div class="drawer-section" id="sec-sobre">
-   <div class="sobre-logo">Fina<span>S</span></div><div class="sobre-version">v6.0 · 2026</div>
+   <div class="sobre-logo">Fina<span>S</span></div><div class="sobre-version">v8.0 · 2026</div>
    <p class="sobre-text">Controle financeiro inteligente para estagiários, CLTs e autônomos. Sem anúncios. Sem complicação.</p>
    <div class="sobre-stats"><div class="ss-item"><div class="ss-val">4</div><div class="ss-lbl">perfis</div></div><div class="ss-item"><div class="ss-val">∞</div><div class="ss-lbl">insights</div></div><div class="ss-item"><div class="ss-val">0</div><div class="ss-lbl">anúncios</div></div></div>
-   <div class="sobre-links"><button class="sobre-link" onclick="showSection('sec-suporte')">💬 Suporte</button><button class="sobre-link" onclick="showSection('sec-planos')">⭐ Planos</button><button class="sobre-link" onclick="logout()">🚪 Sair</button></div>
+   <div class="sobre-links"><button class="sobre-link" onclick="showSection('sec-suporte')">Suporte</button><button class="sobre-link" onclick="showSection('sec-planos')">Planos</button><button class="sobre-link" onclick="logout()">Sair</button></div>
   </div>
  </div>
 </div>
 
-<!-- APP -->
-<div id="app-screen">
- <header class="app-header">
-  <div class="hl"><h1>Fina<span style="color:var(--accent)">S</span></h1><div class="sub" id="greeting">—</div></div>
-  <div class="header-right">
-   <div class="plan-badge free" id="plan-badge" onclick="openDrawer('sec-planos')">⭐ FREE</div>
-   <button class="btn-icon" onclick="openDrawer('sec-perfil')" title="Configurações">⚙️</button>
-   <button class="btn-icon" onclick="logout()" title="Sair">🚪</button>
+<!-- ═══════════════════════════════════════ MODAL EDITAR ═══════════════════════════════════════ -->
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeEditModal()"></div>
+<div class="modal" id="editModal">
+ <div class="modal-handle"></div>
+ <div class="modal-header">
+  <div class="modal-title">Editar lançamento</div>
+  <button class="btn-modal-close" onclick="closeEditModal()"><svg viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/></svg></button>
+ </div>
+ <div class="modal-body">
+  <input type="hidden" id="edit-id">
+  <div class="form-row"><div class="fg"><label>Descrição</label><input type="text" id="edit-desc" placeholder="Ex: Aluguel, Padaria..."></div><div class="fg"><label>Valor (R$)</label><input type="number" id="edit-valor" placeholder="0,00" step="0.01" min="0"></div></div>
+  <div class="form-row tri">
+   <div class="fg"><label>Tipo</label><select id="edit-tipo"><option value="gasto">Gasto</option><option value="recebimento">Recebimento</option><option value="divida">Dívida</option><option value="investimento">Investimento</option></select></div>
+   <div class="fg"><label>Recorrência</label><select id="edit-recorr"><option value="variavel">Variável</option><option value="fixo">Fixo</option></select></div>
+   <div class="fg"><label>Categoria</label><select id="edit-cat"><option value="moradia">Moradia</option><option value="educacao">Educação</option><option value="transporte">Transporte</option><option value="alimentacao">Alimentação</option><option value="saude">Saúde</option><option value="lazer">Lazer</option><option value="assinaturas">Assinaturas</option><option value="vestuario">Vestuário</option><option value="divida">Dívida</option><option value="outros">Outros</option></select></div>
   </div>
- </header>
- <div class="trial-banner" id="trial-banner" style="display:none"><div class="trial-banner-text" id="trial-banner-text">—</div><button class="btn-trial-upgrade" onclick="openDrawer('sec-planos')">Ver Pro →</button></div>
- <div class="mes-selector"><button class="mes-nav" onclick="changeMes(-1)">‹</button><div style="display:flex;align-items:center;gap:7px"><div class="mes-label" id="mes-label">—</div><div class="mes-tag atual" id="mes-tag"></div></div><button class="mes-nav" onclick="changeMes(1)">›</button></div>
- <div class="top-cards">
-  <div class="tc"><div class="tc-lbl">Renda Total</div><div class="tc-val c-green" id="tc-renda">—</div><div class="tc-sub" id="tc-renda-sub">—</div></div>
-  <div class="tc" id="tc-gasto-card"><div class="tc-lbl">Comprometido</div><div class="tc-val" id="tc-gasto">—</div><div class="tc-sub" id="tc-gasto-sub">—</div></div>
-  <div class="tc" id="tc-livre-card"><div class="tc-lbl">Saldo Livre</div><div class="tc-val" id="tc-livre">—</div><div class="tc-sub" id="tc-livre-sub">—</div></div>
-  <div class="tc" id="tc-meta-card"><div class="tc-lbl">Meta do Mês</div><div class="tc-val" id="tc-meta">—</div><div class="tc-sub" id="tc-meta-sub">—</div></div>
+  <div class="form-row"><div class="fg"><label>Dia vencimento</label><input type="number" id="edit-dia" placeholder="Ex: 5" min="1" max="31"></div><div class="fg"><label>Mês/Ano</label><input type="text" id="edit-mes" placeholder="Ex: Mar/2026"></div></div>
+  <button class="btn-save" onclick="saveEditItem()" style="margin-top:4px">Salvar alterações</button>
  </div>
- <div class="top-cards-row2">
-  <div class="tc"><div class="tc-lbl">📌 Gastos Fixos</div><div class="tc-val c-blue" id="tc-fixos">—</div><div class="tc-sub">aluguel, contas, assinaturas</div></div>
-  <div class="tc"><div class="tc-lbl">🔀 Gastos Variáveis</div><div class="tc-val c-warn" id="tc-variaveis">—</div><div class="tc-sub">alimentação, lazer, farmácia</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════ APP ═══════════════════════════════════════ -->
+
+<div id="app-screen">
+ <!-- HEADER -->
+ <div class="app-header">
+  <div><div class="hl-logo">Fina<span>S</span></div><div class="hl-greeting" id="greeting">—</div></div>
+  <div class="header-right">
+   <div class="plan-badge free" id="plan-badge" onclick="openDrawer('sec-planos')">Pro</div>
+   <div class="btn-avatar" onclick="openDrawer('sec-perfil')" id="pb-avatar">P</div>
+  </div>
  </div>
- <div class="health-bar-wrap"><div class="hb-top"><span class="hb-title">Saúde financeira</span><span class="hb-pct" id="hb-pct">0%</span></div><div class="bar-track"><div class="bar-fill" id="bar-fill" style="width:0%;background:var(--accent3)"></div></div><div style="display:flex;gap:10px;margin-top:7px;flex-wrap:wrap"><div style="display:flex;align-items:center;gap:4px;font-size:9px;color:var(--muted)"><div style="width:7px;height:7px;border-radius:50%;background:var(--accent3)"></div>Até 70%</div><div style="display:flex;align-items:center;gap:4px;font-size:9px;color:var(--muted)"><div style="width:7px;height:7px;border-radius:50%;background:var(--warn)"></div>70–90%</div><div style="display:flex;align-items:center;gap:4px;font-size:9px;color:var(--muted)"><div style="width:7px;height:7px;border-radius:50%;background:var(--accent)"></div>+90% crítico</div></div></div>
- <div class="metas-wrap"><div class="metas-header"><div class="metas-title">🎯 Metas do mês</div><button class="btn-add-meta" onclick="toggleMetaForm()">+ Nova meta</button></div><div class="metas-list" id="metas-list"></div><div class="meta-form-inline" id="meta-form"><div class="mf-grid"><div class="fg"><label>Nome</label><input type="text" id="mf-nome" placeholder="Ex: Lazer..."></div><div class="fg"><label>Limite (R$)</label><input type="number" id="mf-limite" placeholder="300" step="0.01"></div><div class="fg"><label>Categoria</label><select id="mf-cat"><option value="">Todas</option><option value="moradia">🏠 Moradia</option><option value="educacao">🎓 Educação</option><option value="transporte">🚌 Transporte</option><option value="alimentacao">🍔 Alimentação</option><option value="saude">💊 Saúde</option><option value="lazer">🎮 Lazer</option><option value="assinaturas">📱 Assinaturas</option><option value="vestuario">👕 Vestuário</option></select></div><div class="fg"><label>&nbsp;</label><button class="btn-meta-save" onclick="addMeta()">Salvar</button></div></div></div></div>
- <div class="tabs-wrap">
-  <div class="tabs">
-   <div class="tab active" onclick="switchTab('lancamentos')">📋 Lançamentos</div>
-   <div class="tab" onclick="switchTab('categorias')">🏷 Categorias</div>
-   <div class="tab" onclick="switchTab('grafico')">📈 Evolução</div>
-   <div class="tab" onclick="switchTab('analise')">🧠 Análise</div>
-   <div class="tab" onclick="switchTab('quinzena')">📅 Quinzena</div>
-   <div class="tab" onclick="switchTab('chat')">🤖 IA</div>
+ <div class="trial-banner" id="trial-banner" style="display:none"><div class="trial-banner-text" id="trial-banner-text">—</div><button class="btn-trial-upgrade" onclick="openDrawer('sec-planos')">Ver Pro</button></div>
+
+ <!-- HOME -->
+
+ <div class="panel active" id="panel-home">
+  <div class="panel-inner">
+   <div class="month-selector">
+    <button class="month-nav" onclick="changeMes(-1)"><svg viewBox="0 0 24 24" fill="none"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="month-info"><div class="month-name" id="mes-label">—</div><div class="month-tag atual" id="mes-tag"></div></div>
+    <button class="month-nav" onclick="changeMes(1)"><svg viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6"/></svg></button>
+   </div>
+   <div class="summary-card">
+    <div class="sc-bar"></div>
+    <div class="sc-label">Saldo livre este mês</div>
+    <div class="sc-value" id="tc-livre">—</div>
+    <div class="sc-sub" id="tc-livre-sub">após todos os gastos</div>
+   </div>
+   <div class="mini-cards">
+    <div class="mini-card"><div class="mc-icon green"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="mc-label">Renda Total</div><div class="mc-value green" id="tc-renda">—</div><div class="mc-sub" id="tc-renda-sub">—</div></div>
+    <div class="mini-card"><div class="mc-icon red"><svg viewBox="0 0 24 24" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="mc-label">Comprometido</div><div class="mc-value red" id="tc-gasto">—</div><div class="mc-sub" id="tc-gasto-sub">da renda</div></div>
+    <div class="mini-card"><div class="mc-icon accent"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="mc-label">Fixos</div><div class="mc-value accent" id="tc-fixos">—</div><div class="mc-sub">recorrentes</div></div>
+    <div class="mini-card"><div class="mc-icon orange"><svg viewBox="0 0 24 24" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="mc-label">Variáveis</div><div class="mc-value orange" id="tc-variaveis">—</div><div class="mc-sub">esporádicos</div></div>
+   </div>
+   <div class="progress-card">
+    <div class="pc-top"><span class="pc-title">Saúde financeira</span><span class="pc-pct" id="hb-pct">0%</span></div>
+    <div class="progress-track"><div class="progress-fill" id="bar-fill" style="width:0%"></div></div>
+    <div class="pc-legend"><div class="pcl-item"><div class="pcl-dot" style="background:var(--green)"></div>Até 70%</div><div class="pcl-item"><div class="pcl-dot" style="background:var(--orange)"></div>70–90%</div><div class="pcl-item"><div class="pcl-dot" style="background:var(--red)"></div>+90%</div></div>
+   </div>
+   <div class="section-header">
+    <div class="section-title">Metas do mês</div>
+    <button class="btn-sm" onclick="toggleMetaForm()"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Nova</button>
+   </div>
+   <div id="metas-list"></div>
+   <div class="meta-form-inline" id="meta-form">
+    <div class="mf-grid">
+     <div class="fg"><label>Nome</label><input type="text" id="mf-nome" placeholder="Ex: Lazer..."></div>
+     <div class="fg"><label>Limite (R$)</label><input type="number" id="mf-limite" placeholder="300" step="0.01"></div>
+     <div class="fg"><label>Categoria</label><select id="mf-cat"><option value="">Todas</option><option value="moradia">Moradia</option><option value="alimentacao">Alimentação</option><option value="transporte">Transporte</option><option value="lazer">Lazer</option><option value="saude">Saúde</option><option value="assinaturas">Assinaturas</option></select></div>
+     <div class="fg"><label>&nbsp;</label><button class="btn-meta-save" onclick="addMeta()">Salvar</button></div>
+    </div>
+   </div>
   </div>
  </div>
 
  <!-- LANÇAMENTOS -->
- <div class="panel active" id="panel-lancamentos">
-  <div class="form-section">
-   <div class="fs-title">Novo lançamento <span class="fs-tag">Enter para salvar</span></div>
-   <div class="tipo-select"><div class="tb" onclick="selTipo('gasto')" id="t-gasto"><div class="ti">💸</div><div class="tn">Gasto</div></div><div class="tb" onclick="selTipo('recebimento')" id="t-recebimento"><div class="ti">💰</div><div class="tn">Recebimento</div></div><div class="tb" onclick="selTipo('divida')" id="t-divida"><div class="ti">🔴</div><div class="tn">Dívida</div></div><div class="tb" onclick="selTipo('investimento')" id="t-investimento"><div class="ti">📈</div><div class="tn">Investimento</div></div></div>
-   <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Tipo de gasto</div>
-   <div class="recorr-select">
-    <div class="rb" onclick="selRecorr('fixo')" id="r-fixo">📌 Fixo <span style="font-size:9px;color:var(--muted);font-weight:400">(aluguel, luz...)</span></div>
-    <div class="rb sel" onclick="selRecorr('variavel')" id="r-variavel">🔀 Variável <span style="font-size:9px;color:var(--muted);font-weight:400">(café, farmácia...)</span></div>
-   </div>
-   <div class="form-row"><div class="fg"><label>Descrição</label><input type="text" id="f-desc" placeholder="Ex: Aluguel, Padaria do João..."></div><div class="fg"><label>Valor (R$)</label><input type="number" id="f-valor" placeholder="0,00" step="0.01" min="0"></div></div>
-   <div class="form-row tri"><div class="fg"><label>Categoria</label><select id="f-cat"><option value="moradia">🏠 Moradia</option><option value="educacao">🎓 Educação</option><option value="transporte">🚌 Transporte</option><option value="alimentacao">🍔 Alimentação</option><option value="saude">💊 Saúde</option><option value="lazer">🎮 Lazer</option><option value="assinaturas">📱 Assinaturas</option><option value="vestuario">👕 Vestuário</option><option value="divida">💳 Dívida</option><option value="outros">📦 Outros</option></select></div><div class="fg"><label>Dia do vencimento</label><input type="number" id="f-dia" placeholder="Ex: 5" min="1" max="31"></div><div class="fg"><label>Mês/Ano</label><input type="text" id="f-mes" placeholder="Ex: Mar/2026"></div></div>
-   <label class="parc-toggle"><input type="checkbox" id="f-parc" onchange="toggleParc()"><span class="parc-toggle-lbl"><strong>Parcelado?</strong> — indique por quantos meses</span></label>
-   <div class="parc-fields" id="parc-fields"><div class="fg"><label>Nº parcelas</label><input type="number" id="f-np" placeholder="Ex: 12" min="1"></div><div class="fg"><label>Parcela atual</label><input type="number" id="f-pa" placeholder="Ex: 1" min="1"></div><div class="fg"><label>Mês início</label><input type="text" id="f-mi" placeholder="Ex: Mar/2026"></div></div>
-   <button class="btn-save" onclick="addItem()">Salvar lançamento</button>
-  </div>
-  <div class="filter-row"><div class="fb active" onclick="setFilter(this,'todos')">Todos</div><div class="fb" onclick="setFilter(this,'gasto')">💸 Gastos</div><div class="fb" onclick="setFilter(this,'recebimento')">💰 Recebimentos</div><div class="fb" onclick="setFilter(this,'divida')">🔴 Dívidas</div><div class="fb" onclick="setFilter(this,'investimento')">📈 Investimentos</div><div class="fb" onclick="setFilter(this,'arquivado')">📦 Arquivados</div></div>
-  <div class="gastos-lista" id="gastos-lista"></div>
- </div>
 
- <!-- CATEGORIAS -->
- <div class="panel" id="panel-categorias">
-  <div class="analise-card">
-   <div class="ac-title">🏷 Gastos por Categoria — <span style="color:var(--muted);font-size:12px;font-weight:400" id="cat-mes-label">este mês</span></div>
-   <div style="display:flex;gap:12px;font-size:11px;margin-bottom:14px;flex-wrap:wrap">
-    <div style="display:flex;align-items:center;gap:5px"><span>📌</span> <span style="color:var(--muted)">= Fixo (repete todo mês)</span></div>
-    <div style="display:flex;align-items:center;gap:5px"><span>🔀</span> <span style="color:var(--muted)">= Variável (esporádico)</span></div>
+ <div class="panel" id="panel-lancamentos">
+  <div class="panel-inner">
+   <div class="form-card">
+    <div class="form-card-title">Novo lançamento <span class="form-card-tag">Enter = salvar</span></div>
+    <div class="tipo-select">
+     <div class="tb" onclick="selTipo('gasto')" id="t-gasto"><div class="ti"><svg viewBox="0 0 24 24" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="tn">Gasto</div></div>
+     <div class="tb" onclick="selTipo('recebimento')" id="t-recebimento"><div class="ti"><svg viewBox="0 0 24 24" fill="none"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div><div class="tn">Recebimento</div></div>
+     <div class="tb" onclick="selTipo('divida')" id="t-divida"><div class="ti"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="tn">Dívida</div></div>
+     <div class="tb" onclick="selTipo('investimento')" id="t-investimento"><div class="ti"><svg viewBox="0 0 24 24" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="tn">Investimento</div></div>
+    </div>
+    <div class="recorr-select">
+     <div class="rb" onclick="selRecorr('fixo')" id="r-fixo"><svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Fixo</div>
+     <div class="rb sel" onclick="selRecorr('variavel')" id="r-variavel"><svg viewBox="0 0 24 24" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Variável</div>
+    </div>
+    <div class="form-row"><div class="fg"><label>Descrição</label><input type="text" id="f-desc" placeholder="Ex: Aluguel, Padaria..."></div><div class="fg"><label>Valor (R$)</label><input type="number" id="f-valor" placeholder="0,00" step="0.01" min="0"></div></div>
+    <div class="form-row tri"><div class="fg"><label>Categoria</label><select id="f-cat"><option value="moradia">Moradia</option><option value="educacao">Educação</option><option value="transporte">Transporte</option><option value="alimentacao">Alimentação</option><option value="saude">Saúde</option><option value="lazer">Lazer</option><option value="assinaturas">Assinaturas</option><option value="vestuario">Vestuário</option><option value="divida">Dívida</option><option value="outros">Outros</option></select></div><div class="fg"><label>Dia vencimento</label><input type="number" id="f-dia" placeholder="Ex: 5" min="1" max="31"></div><div class="fg"><label>Mês/Ano</label><input type="text" id="f-mes" placeholder="Ex: Mar/2026"></div></div>
+    <label class="parc-toggle"><input type="checkbox" id="f-parc" onchange="toggleParc()"><span class="parc-toggle-lbl"><strong>Parcelado?</strong> — informe as parcelas</span></label>
+    <div class="parc-fields" id="parc-fields"><div class="fg"><label>Nº parcelas</label><input type="number" id="f-np" placeholder="12" min="1"></div><div class="fg"><label>Parcela atual</label><input type="number" id="f-pa" placeholder="1" min="1"></div><div class="fg"><label>Mês início</label><input type="text" id="f-mi" placeholder="Mar/2026"></div></div>
+    <button class="btn-save" onclick="addItem()">Salvar lançamento</button>
    </div>
-   <div id="cat-lista"></div>
+   <div class="filter-row">
+    <div class="fb active" onclick="setFilter(this,'todos')">Todos</div>
+    <div class="fb" onclick="setFilter(this,'gasto')"><svg viewBox="0 0 24 24" fill="none"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>Gastos</div>
+    <div class="fb" onclick="setFilter(this,'recebimento')"><svg viewBox="0 0 24 24" fill="none"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>Entradas</div>
+    <div class="fb" onclick="setFilter(this,'divida')"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Dívidas</div>
+    <div class="fb" onclick="setFilter(this,'investimento')"><svg viewBox="0 0 24 24" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Invest.</div>
+    <div class="fb" onclick="setFilter(this,'arquivado')">Arquivados</div>
+   </div>
+   <div class="swipe-hint" id="swipe-hint" style="display:none"><svg viewBox="0 0 24 24" fill="none"><polyline points="15 18 9 12 15 6"/></svg>Arraste um item para editar ou excluir</div>
+   <div class="gastos-lista" id="gastos-lista"></div>
   </div>
- </div>
-
- <!-- GRÁFICO -->
- <div class="panel" id="panel-grafico">
-  <div class="chart-section"><div id="grafico-lock" class="lock-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Disponível no plano <strong>Pro</strong></div><button class="btn-unlock" onclick="openDrawer('sec-planos')">Ver planos →</button></div><div class="chart-header"><div class="chart-title">📈 Evolução mensal</div><div class="chart-legend"><div class="cl-item"><div class="cl-dot" style="background:var(--accent3)"></div>Renda</div><div class="cl-item"><div class="cl-dot" style="background:var(--accent2)"></div>Fixos</div><div class="cl-item"><div class="cl-dot" style="background:var(--accent)"></div>Variáveis</div><div class="cl-item"><div class="cl-dot" style="background:var(--warn)"></div>Saldo</div></div></div><div class="chart-wrap"><canvas id="monthlyChart"></canvas></div></div>
-  <div class="chart-section"><div class="chart-header"><div class="chart-title">📊 Resumo por mês</div></div><div class="chart-months-summary" id="months-summary"></div></div>
-  <div class="chart-section"><div class="chart-header"><div class="chart-title">🍩 Gastos por categoria</div></div><div class="chart-wrap" style="height:180px"><canvas id="catChart"></canvas></div></div>
  </div>
 
  <!-- ANÁLISE -->
- <div class="panel" id="panel-analise">
-  <div class="analise-card"><div class="ac-title">👤 Seu perfil</div><div id="perfil-box" style="background:var(--tag-bg);border-radius:9px;padding:11px;font-size:12px;line-height:1.8;color:var(--muted)">—</div></div>
-  <div class="analise-card" style="position:relative"><div id="analise-lock" class="lock-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Análise avançada no <strong>Pro</strong></div><button class="btn-unlock" onclick="openDrawer('sec-planos')">Ver planos →</button></div><div class="ac-title">💡 Insights personalizados</div><div id="insight-list"></div></div>
-  <div class="analise-card" style="position:relative"><div id="invest-lock" class="lock-overlay" style="display:none"><div class="lock-icon">🔒</div><div class="lock-text">Sugestões de investimento no <strong>Pro</strong></div><button class="btn-unlock" onclick="openDrawer('sec-planos')">Ver planos →</button></div><div class="ac-title">📊 Sugestões de Investimento</div><div id="invest-sugestoes"><div class="empty-state" style="padding:14px"><p>Carregando sugestões...</p></div></div></div>
- </div>
 
- <!-- QUINZENA -->
- <div class="panel" id="panel-quinzena">
-  <div class="analise-card"><div class="ac-title">📅 Distribuição quinzenal</div><div class="qgrid"><div class="qcard"><div class="qcard-title">1ª Quinzena (1–15)</div><div id="q1-items"></div><div class="qcard-total"><span>Total</span><span id="q1-total" class="c-red">R$ 0</span></div></div><div class="qcard"><div class="qcard-title">2ª Quinzena (16–31)</div><div id="q2-items"></div><div class="qcard-total"><span>Total</span><span id="q2-total" class="c-red">R$ 0</span></div></div></div></div>
-  <div class="analise-card"><div class="ac-title">🗓 Parcelas em andamento</div><div id="parc-calendar"></div></div>
+ <div class="panel" id="panel-analise">
+  <div class="panel-inner">
+   <div class="analise-card"><div class="ac-title"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke-linecap="round"/></svg>Seu perfil</div><div class="perfil-box" id="perfil-box">—</div><div id="insight-list"></div></div>
+   <div class="analise-card" style="position:relative"><div id="analise-lock" class="lock-overlay"><div class="lock-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="lock-text">Análise avançada no <strong>Pro</strong></div><button class="btn-unlock" onclick="openDrawer('sec-planos')">Ver planos</button></div><div class="ac-title"><svg viewBox="0 0 24 24" fill="none"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Sugestões de Investimento</div><div id="invest-sugestoes"></div></div>
+   <div class="chart-section" style="position:relative"><div id="grafico-lock" class="lock-overlay"><div class="lock-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="lock-text">Gráficos no <strong>Pro</strong></div><button class="btn-unlock" onclick="openDrawer('sec-planos')">Ver planos</button></div><div class="chart-header"><div class="chart-title"><svg viewBox="0 0 24 24" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Evolução mensal</div><div class="chart-legend"><div class="cl-item"><div class="cl-dot" style="background:var(--green)"></div>Renda</div><div class="cl-item"><div class="cl-dot" style="background:var(--accent)"></div>Fixos</div><div class="cl-item"><div class="cl-dot" style="background:var(--red)"></div>Variáveis</div></div></div><div class="chart-wrap"><canvas id="monthlyChart"></canvas></div><div class="chart-months-summary" id="months-summary"></div></div>
+   <div class="chart-section"><div class="chart-header"><div class="chart-title"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Por categoria</div></div><div class="chart-wrap" style="height:180px"><canvas id="catChart"></canvas></div></div>
+  </div>
  </div>
 
  <!-- CHAT IA -->
+
  <div class="panel" id="panel-chat">
-  <div class="chat-wrap">
-   <div class="chat-header">
-    <div class="chat-header-left"><div class="chat-ai-avatar">🤖</div><div><div class="chat-ai-name">Assistente FinaS</div><div class="chat-ai-sub">Powered by Claude · Especialista em finanças pessoais</div></div></div>
-    <div id="chat-counter">10 mensagens restantes</div>
+  <div class="panel-inner">
+   <div class="chat-wrap">
+    <div class="chat-header">
+     <div class="chat-header-left">
+      <div class="chat-ai-avatar"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/></svg></div>
+      <div><div class="chat-ai-name">Assistente FinaS</div><div class="chat-ai-sub">Especialista financeiro · IA</div></div>
+     </div>
+     <div id="chat-counter">10 msgs</div>
+    </div>
+    <div class="chat-list" id="chat-list"></div>
+    <div class="chat-input-wrap">
+     <textarea id="chat-input" placeholder="Pergunte sobre investimentos, como economizar..." rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChatMessage()}"></textarea>
+     <button id="chat-send" onclick="sendChatMessage()"><svg viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+    </div>
    </div>
-   <div class="chat-list" id="chat-list"></div>
-   <div class="chat-input-wrap">
-    <textarea id="chat-input" placeholder="Pergunte sobre investimentos, como economizar, suas dívidas..." rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChatMessage()}"></textarea>
-    <button id="chat-send" onclick="sendChatMessage()">Enviar →</button>
-   </div>
-  </div>
-  <div style="font-size:10px;color:var(--muted);text-align:center;padding:8px;line-height:1.5">
-   ⚠️ Não é consultoria financeira. Para decisões de investimento, consulte um profissional certificado.
+   <p style="font-size:11px;color:var(--muted);text-align:center;padding:10px;line-height:1.5;font-weight:500">Não é consultoria financeira. Para decisões importantes, consulte um profissional.</p>
   </div>
  </div>
 
+</div><!-- /app-screen -->
+
+<!-- ═══════════════════════════════════════ BOTTOM NAV (só aparece no app) ═══════════════════════════════════════ -->
+
+<div class="bottom-nav-wrap" id="bottom-nav-wrap" style="display:none">
+ <div class="bottom-nav">
+  <div class="bn-item active" onclick="switchTab('home')" id="bn-home">
+   <div class="bn-icon-wrap"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+   <div class="bn-label">Home</div>
+  </div>
+  <div class="bn-item" onclick="switchTab('lancamentos')" id="bn-lancamentos">
+   <div class="bn-icon-wrap"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+   <div class="bn-label">Lançar</div>
+  </div>
+  <div class="bn-item" onclick="switchTab('analise')" id="bn-analise">
+   <div class="bn-icon-wrap"><svg viewBox="0 0 24 24" fill="none"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+   <div class="bn-label">Análise</div>
+  </div>
+  <div class="bn-item" onclick="switchTab('chat')" id="bn-chat">
+   <div class="bn-icon-wrap"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg></div>
+   <div class="bn-label">IA</div>
+  </div>
+ </div>
 </div>
+
 <div class="toast" id="toast"></div>
+
+<!-- ═══════════════════════════════════════ OVERRIDES & NEW FEATURES ═══════════════════════════════════════ -->
+
+<script>
+// ── Mostrar nav só no app ──────────────────────────────────────────────────────
+const _origShowApp = window.showApp;
+function showBottomNav(show){
+  document.getElementById('bottom-nav-wrap').style.display = show ? 'block' : 'none';
+}
+
+// Patch showApp to show nav
+const _origShowAppFn = window.showApp;
+if(typeof window.showApp === 'function'){
+  window.showApp = function(){_origShowAppFn && _origShowAppFn(); showBottomNav(true);};
+}
+// Also watch auth screen visibility changes
+const authObs = new MutationObserver(()=>{
+  const authVisible = document.getElementById('auth-screen').style.display !== 'none';
+  const appVisible = document.getElementById('app-screen').style.display !== 'none';
+  showBottomNav(appVisible && !authVisible);
+});
+authObs.observe(document.getElementById('auth-screen'), {attributes:true, attributeFilter:['style']});
+authObs.observe(document.getElementById('app-screen'), {attributes:true, attributeFilter:['style']});
+
+// ── switchTab override ──────────────────────────────────────────────────────────
+window.switchTab = function(t){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.bn-item').forEach(b=>b.classList.remove('active'));
+  const map={home:'panel-home',lancamentos:'panel-lancamentos',analise:'panel-analise',chat:'panel-chat'};
+  const p=document.getElementById(map[t]);if(p)p.classList.add('active');
+  const b=document.getElementById('bn-'+t);if(b)b.classList.add('active');
+  if(t==='analise'){if(typeof renderGrafico==='function')renderGrafico();if(typeof renderAnalise==='function')renderAnalise();}
+  if(t==='chat'&&typeof initChat==='function')initChat();
+  // Show swipe hint if there are items
+  const hint=document.getElementById('swipe-hint');
+  if(hint)hint.style.display=(t==='lancamentos')?'flex':'none';
+};
+
+// ── SWIPE TO REVEAL (iOS style) ─────────────────────────────────────────────────
+function setupSwipe(wrapper){
+  const gi = wrapper.querySelector('.gi');
+  const actions = wrapper.querySelector('.gi-actions');
+  if(!gi||!actions) return;
+  let startX=0, curX=0, swiped=false;
+  const MAX_SWIPE = 120;
+
+  function onStart(e){
+    startX = (e.touches?e.touches[0]:e).clientX;
+    curX = swiped ? -MAX_SWIPE : 0;
+    gi.style.transition='none';
+  }
+  function onMove(e){
+    const dx = (e.touches?e.touches[0]:e).clientX - startX;
+    const newX = Math.max(-MAX_SWIPE, Math.min(0, curX + dx));
+    gi.style.transform = `translateX(${newX}px)`;
+    actions.style.opacity = Math.abs(newX)/MAX_SWIPE;
+    if(Math.abs(dx) > 5 && e.cancelable) e.preventDefault();
+  }
+  function onEnd(e){
+    const dx = (e.changedTouches?e.changedTouches[0]:e).clientX - startX;
+    gi.style.transition = 'transform 0.25s cubic-bezier(0.4,0,0.2,1)';
+    if(dx < -40 || (swiped && dx < 10)){
+      gi.style.transform=`translateX(-${MAX_SWIPE}px)`;
+      actions.style.opacity='1'; swiped=true;
+    } else {
+      gi.style.transform='translateX(0)'; actions.style.opacity='0'; swiped=false;
+    }
+  }
+  gi.addEventListener('touchstart',onStart,{passive:true});
+  gi.addEventListener('touchmove',onMove,{passive:false});
+  gi.addEventListener('touchend',onEnd);
+  // Mouse support for desktop
+  gi.addEventListener('mousedown',e=>{onStart(e);
+    const mm=ev=>onMove(ev), mu=ev=>{onEnd(ev);document.removeEventListener('mousemove',mm);document.removeEventListener('mouseup',mu);};
+    document.addEventListener('mousemove',mm);document.addEventListener('mouseup',mu);
+  });
+  // Tap outside to close
+  document.addEventListener('click',e=>{
+    if(swiped && !wrapper.contains(e.target)){gi.style.transition='transform 0.25s';gi.style.transform='translateX(0)';actions.style.opacity='0';swiped=false;}
+  },{passive:true});
+}
+
+// ── EDIT MODAL ────────────────────────────────────────────────────────────────
+window.openEditModal = function(id){
+  if(!id) return;
+  const item = typeof userItems !== 'undefined' ? userItems.find(i=>i.id===id) : null;
+  if(!item){if(typeof toast==='function')toast('Item não encontrado','error');return;}
+  document.getElementById('edit-id').value = id;
+  document.getElementById('edit-desc').value = item.desc||'';
+  document.getElementById('edit-valor').value = item.valor||'';
+  document.getElementById('edit-tipo').value = item.tipo||'gasto';
+  document.getElementById('edit-recorr').value = item.recorrencia||'variavel';
+  document.getElementById('edit-cat').value = item.cat||'outros';
+  document.getElementById('edit-dia').value = item.dia||'';
+  document.getElementById('edit-mes').value = item.mesAno||'';
+  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('editModal').classList.add('open');
+  document.body.style.overflow='hidden';
+};
+window.closeEditModal = function(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.getElementById('editModal').classList.remove('open');
+  document.body.style.overflow='';
+};
+window.saveEditItem = async function(){
+  const id = document.getElementById('edit-id').value;
+  if(!id) return;
+  const updates = {
+    desc: document.getElementById('edit-desc').value.trim(),
+    valor: parseFloat(document.getElementById('edit-valor').value),
+    tipo: document.getElementById('edit-tipo').value,
+    recorrencia: document.getElementById('edit-recorr').value,
+    cat: document.getElementById('edit-cat').value,
+    dia: parseInt(document.getElementById('edit-dia').value)||null,
+    mesAno: document.getElementById('edit-mes').value.trim()||null,
+  };
+  if(!updates.desc||!updates.valor||updates.valor<=0){if(typeof toast==='function')toast('Preencha descrição e valor!','error');return;}
+  try{
+    if(typeof showLoading==='function')showLoading('Salvando...');
+    await db.collection('users').doc(auth.currentUser.uid).collection('items').doc(id).update(updates);
+    if(typeof userItems!=='undefined'){const idx=userItems.findIndex(i=>i.id===id);if(idx>=0)userItems[idx]={...userItems[idx],...updates};}
+    if(typeof hideLoading==='function')hideLoading();
+    if(typeof toast==='function')toast('Lançamento atualizado!','success');
+    closeEditModal();
+    if(typeof renderAll==='function')renderAll();
+  }catch(e){
+    if(typeof hideLoading==='function')hideLoading();
+    if(typeof toast==='function')toast('Erro ao salvar','error');
+    console.error(e);
+  }
+};
+
+// ── PATCH renderGiItem to use swipe wrapper ───────────────────────────────────
+const _buildGiWrapper = function(item, innerHtml){
+  const w = document.createElement('div');
+  w.className = 'gi-wrapper';
+  w.innerHTML = `
+    <div class="gi-actions">
+      <button class="gi-action-btn gi-action-edit" onclick="openEditModal('${item.id}')">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        <span>Editar</span>
+      </button>
+      <button class="gi-action-btn gi-action-delete" onclick="removeItem('${item.id}')">
+        <svg viewBox="0 0 24 24" fill="none"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+        <span>Excluir</span>
+      </button>
+    </div>
+    ${innerHtml}
+  `;
+  setTimeout(()=>setupSwipe(w), 0);
+  return w;
+};
+
+// Override renderGiItem to return wrapped version
+const _origRenderGiItem = window.renderGiItem;
+window.renderGiItemWrapped = function(item){
+  // Get original HTML string
+  if(typeof _origRenderGiItem === 'function'){
+    const tmp = document.createElement('div');
+    const orig = _origRenderGiItem(item);
+    // orig is an HTML string; remove the delete button inside since we have swipe now
+    const cleaned = orig.replace(/<button class="gi-del"[^>]*>.*?<\/button>/g,'');
+    return _buildGiWrapper(item, cleaned);
+  }
+  return document.createElement('div');
+};
+
+// Patch renderLista to inject swipe wrappers
+const _origRenderLista = window.renderLista;
+if(typeof _origRenderLista === 'function'){
+  window.renderLista = function(){
+    _origRenderLista();
+    // After render, wrap each .gi in a .gi-wrapper with swipe actions
+    const lista = document.getElementById('gastos-lista');
+    if(!lista) return;
+    const items_arr = typeof userItems !== 'undefined' ? userItems : [];
+    // Replace plain .gi elements (not already wrapped)
+    lista.querySelectorAll('.gi:not(.gi-wrapper .gi)').forEach(gi=>{
+      const id = gi.querySelector('[onclick*="removeItem"]')?.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+      if(!id) return;
+      const item = items_arr.find(i=>i.id===id);
+      if(!item) return;
+      const w = document.createElement('div');
+      w.className='gi-wrapper';
+      const cleaned = gi.outerHTML.replace(/<button class="gi-del"[^>]*>.*?<\/button>/g,'');
+      w.innerHTML = `
+        <div class="gi-actions">
+          <button class="gi-action-btn gi-action-edit" onclick="openEditModal('${id}')">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            <span>Editar</span>
+          </button>
+          <button class="gi-action-btn gi-action-delete" onclick="removeItem('${id}')">
+            <svg viewBox="0 0 24 24" fill="none"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+            <span>Excluir</span>
+          </button>
+        </div>
+        ${cleaned}`;
+      gi.parentNode.replaceChild(w, gi);
+      setupSwipe(w);
+    });
+    // Show hint if items exist
+    const hint = document.getElementById('swipe-hint');
+    if(hint) hint.style.display = lista.querySelectorAll('.gi-wrapper').length > 0 ? 'flex' : 'none';
+  };
+}
+
+// ── Button ripple effect ──────────────────────────────────────────────────────
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('.btn-save,.btn-auth,.btn-ob-next,.btn-google,.btn-plan');
+  if(!btn) return;
+  btn.classList.remove('rippling');
+  void btn.offsetWidth;
+  btn.classList.add('ripple-wrap','rippling');
+  setTimeout(()=>btn.classList.remove('rippling'), 600);
+}, {passive:true});
+
+// ── Export new globals ─────────────────────────────────────────────────────────
+window.openEditModal=window.openEditModal;
+window.closeEditModal=window.closeEditModal;
+window.saveEditItem=window.saveEditItem;
+</script>
+
 </body>
 </html>
