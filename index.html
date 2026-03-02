@@ -4,6 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>FinaS — Controle Inteligente</title>
 <meta name="description" content="Controle financeiro inteligente com IA">
 <meta name="theme-color" content="#e84c2b">
@@ -514,9 +517,9 @@ backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)
 
 <!-- ═══════════════════════════════════════ AUTH ═══════════════════════════════════════ -->
 
-<div id="loading-overlay"><div class="loading-spinner"></div><div id="loading-msg">Carregando...</div></div>
+<div id="loading-overlay" style="display:flex"><div class="loading-spinner"></div><div id="loading-msg">Carregando...</div></div>
 
-<div id="auth-screen">
+<div id="auth-screen" style="display:none">
  <div class="auth-wrap">
   <div class="auth-logo">Fina<span>S</span></div>
   <div class="auth-tagline">Controle financeiro inteligente</div>
@@ -561,7 +564,7 @@ backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)
 
 <!-- ═══════════════════════════════════════ ONBOARDING ═══════════════════════════════════════ -->
 
-<div id="onboard-screen">
+<div id="onboard-screen" style="display:none">
  <div class="ob-wrap">
   <div class="ob-header"><div class="ob-logo">Fina<span>S</span></div><p style="font-size:12px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;font-weight:600">Configure seu perfil</p></div>
   <div class="ob-card">
@@ -678,7 +681,7 @@ backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)
 
 <!-- ═══════════════════════════════════════ APP ═══════════════════════════════════════ -->
 
-<div id="app-screen">
+<div id="app-screen" style="display:none">
  <!-- HEADER -->
  <div class="app-header">
   <div><div class="hl-logo">Fina<span>S</span></div><div class="hl-greeting" id="greeting">—</div></div>
@@ -1852,5 +1855,19 @@ document.addEventListener('click',e=>{
 
 </script>
 
+<noscript>
+  <style>#loading-overlay{display:none!important}#auth-screen{display:flex!important}</style>
+</noscript>
+<script>
+// Safety net: se Firebase não responder em 8s, mostra tela de login
+setTimeout(function(){
+  var lo = document.getElementById('loading-overlay');
+  var auth = document.getElementById('auth-screen');
+  if(lo && lo.style.display !== 'none' && auth && auth.style.display === 'none'){
+    lo.style.display = 'none';
+    auth.style.display = 'flex';
+  }
+}, 8000);
+</script>
 </body>
 </html>
